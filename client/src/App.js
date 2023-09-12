@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import Calender from './components/homepage/Calender.js';
+import Home from './components/homepage/Home';
 import NavBar from './components/common/Navbar';
 
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Calender />
+      <Home />
     </div>
   );
 }

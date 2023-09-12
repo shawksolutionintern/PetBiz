@@ -6,7 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 
 const Calender = () => {
   return (
-    <div class="calender">
+    <div className="calender">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView={"timeGridDay"}
