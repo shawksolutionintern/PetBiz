@@ -25,6 +25,10 @@
     margin: 15px 0;
   }
  
+  .nav-item:hover{
+    color: grey;
+  }
+  
   .nav-item-bottom {
     margin-top: auto;
   }
