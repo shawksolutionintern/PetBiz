@@ -28,6 +28,7 @@ async function main() {
     gender: String,
     weight: Number,
     Note: String,
+    SpayedOrNeutered: Boolean
   });
   models.pet = mongoose.model("Pet", PetSchema);
 
@@ -45,10 +46,9 @@ async function main() {
     pet_id: { type: mongoose.Schema.Types.ObjectId, ref: "Pet" },
     service_id: { type: mongoose.Schema.Types.ObjectId, ref: "Service" },
     groomer_id: { type: mongoose.Schema.Types.ObjectId, ref: "Groomer" },
-    start_date: Date,
-    start_time: Date,
-    end_date: Date,
-    end_time: Date,
+    title: String,
+    start: Date,
+    end:Date,
     status: Number,
     checkIn: Boolean,
   });

@@ -6,6 +6,7 @@
 .App {
   display: flex;
   flex-direction: row;
+  height:100vh;
 }
 
 
@@ -64,4 +65,9 @@
       width:30%;
      margin:10px;
     padding:10px;
+  }
+
+
+  .listCalender{
+    height:400px;
   }
