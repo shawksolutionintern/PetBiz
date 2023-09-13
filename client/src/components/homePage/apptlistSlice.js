@@ -1,9 +1,9 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import { SERVER_API} from "../../data/serverAddress";
+import { SERVER_API} from "../../data/SERVER"
 import axios from "axios";
 
 const initialState = {
-  eventList: [],
+  list: [],
   status: "idle",
   error: null,
 };

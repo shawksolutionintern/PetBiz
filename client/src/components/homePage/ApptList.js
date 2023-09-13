@@ -19,10 +19,14 @@ const ApptList = () =>{
 
 const MonthCalender =  ()=>{
     return (
-      <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        initialView={"dayGridMonth"}
-      />
+      <div className='listCalender'>
+        <FullCalendar
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          aspectRatio={1.5}
+  
+          initialView={"dayGridMonth"}
+        />
+      </div>
     );
 
 
