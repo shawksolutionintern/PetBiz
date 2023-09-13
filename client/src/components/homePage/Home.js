@@ -20,7 +20,7 @@ const Home = () => {
      
     }, [fetchStatus, dispatch]);
 
-    // console.log("applist:", apptLists);
+    console.log("applist:", apptLists);
 
     return(
         <div className="homepage">

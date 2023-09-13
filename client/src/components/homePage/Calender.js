@@ -4,9 +4,10 @@ import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 
+
 const Calender = ({list}) => {
   console.log("list in Calender: ", list)
-  let fullcalendarArr = list.map((li)=>{
+  let fullcalendarArr = list?.map((li)=>{
       let obj = {
         title: li.title,
         start: li.start,
@@ -18,11 +19,12 @@ const Calender = ({list}) => {
 
   return (
     <div className="calender">
+  
       <FullCalendar
         plugins={[
           dayGridPlugin,
           timeGridPlugin,
-          // interactionPlugin
+          interactionPlugin
         ]}
         initialView={"timeGridDay"}
         events={fullcalendarArr}

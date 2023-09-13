@@ -1,59 +1,82 @@
-*{
+* {
   box-sizing: content-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 .App {
   display: flex;
   flex-direction: row;
-  height:100vh;
+  height: 100vh;
 }
 
-
 .navbar {
-    padding-top: 30px;
-    width: 150px;
-    height: 100vh;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    margin:0;
-  }
- 
-  .logo {
-    font-family: monospace;
-    font-size: 24px;
-    margin: 20px;
-    font-weight: bold;
-   
-  }
- 
-  .nav-item {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 15px 0;
-  }
- 
-  .nav-item.nav-link:hover {
-    color: grey;
-  }
-  
-  .nav-item-bottom {
-    margin-top: auto;
-  }
+  width: 150px;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
 
-  .nav-link {
-    text-decoration: none;
-    color: inherit;
-  }
+.logo {
+  font-family: monospace;
+  font-size: 24px;
+  margin: 20px;
+  font-weight: bold;
+}
 
+.nav-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
 
+.nav-item.nav-link:hover {
+  color: grey;
+}
 
+.nav-item-bottom {
+  margin-top: auto;
+}
 
-  .listCalender{
-    height:400px;
-  }
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-content {
+  width: 100%;
+}
+
+/* CSS for HomePage */
+.homepage {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.calender {
+  position: relative;
+  height: 90vh;
+  width: 65%;
+  padding: 10px;
+  margin: 10px;
+}
+.timeline {
+  position: absolute;
+  width:inherit;
+  border: solid red 2px;
+  height:1px;
+}
+
+.sideCalender {
+  padding: 10px;
+  margin: 10px;
+}
+
+.listCalender {
+  height: 400px;
+}

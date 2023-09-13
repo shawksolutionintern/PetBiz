@@ -14,6 +14,7 @@ export const fetchList = createAsyncThunk(
     const response = await axios.get(
       `${SERVER_API}/api/appt/?date=` + date
     );
+    console.log(response.data.list)
     return response.data.list;
   }
 );

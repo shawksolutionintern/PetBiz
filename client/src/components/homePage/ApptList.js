@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 
+
 const ApptList = () =>{
     return(
         <div className='apptListView'>
@@ -14,16 +15,13 @@ const ApptList = () =>{
 
 }
 
-
-
-
 const MonthCalender =  ()=>{
     return (
-      <div className='listCalender'>
+      <div className='sideCalender'>
+       
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           aspectRatio={1.5}
-  
           initialView={"dayGridMonth"}
         />
       </div>
