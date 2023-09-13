@@ -25,10 +25,17 @@
     margin: 15px 0;
   }
  
-  .nav-item:hover{
+  .nav-item.nav-link:hover {
     color: grey;
   }
   
   .nav-item-bottom {
     margin-top: auto;
   }
+
+  .nav-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+
