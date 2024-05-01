@@ -17,6 +17,8 @@ import CustomerLogin from './components/loginPage/CustomerLogin';
 import BusinessSignup from './components/loginPage/BusinessSignup';
 import NextStep from './components/loginPage/NextStep';
 import ForgotPassword from './components/loginPage/ForgotPassword';
+import VerificationPage from './components/loginPage/VerificationPage';
+import ResetPassword from './components/loginPage/ResetPassword';
 
 // 保护组件，用于确保用户登录后才能访问某些路由
 const ProtectedRoute = ({ children }) => {
@@ -39,6 +41,8 @@ function App() {
             <Route path="/business-signup" element={<BusinessSignup />} /> 
             <Route path="/next-page" element={<NextStep/>}/> 
             <Route path="/forgot-password" element={<ForgotPassword/>}/> 
+            <Route path="/verification-page" element={<VerificationPage/>}/> 
+            <Route path="/reset-password" element={<ResetPassword/>}/>
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/book" element={<ProtectedRoute><Book /></ProtectedRoute>} />
             <Route path="/service" element={<ProtectedRoute><Service /></ProtectedRoute>} />
