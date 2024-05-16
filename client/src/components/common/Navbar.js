@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div className="navbar">
       <div className="logo">Petbiz</div>
-      <Link to="/" className="nav-item nav-link">
+      <Link to="/book" className="nav-item nav-link">
         <FaCalendarAlt size={28}/>
         <span>Book</span>
       </Link>

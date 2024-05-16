@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 
 function BusinessLogin() {
   const [error, setError] = useState(false);
+  const navigate = useNavigate();  
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
     setError(true); 
+
+    if (email === "linjun0206@gmail.com" && password === "password") {
+      localStorage.setItem('isLoggedIn', true);  // 设置登录状态
+      navigate('/home');  // 导航到主页
+    } else {
+      setError(true);  // 设置错误信息
+    }
   };
+
 
   return (
     <div className="business-container">
@@ -27,11 +38,12 @@ function BusinessLogin() {
         {error && <div className="error-message">The account or password is incorrect!</div>}
         <button type="submit">Sign in</button>
         <a href="#" style={{display: 'block', marginTop: '10px'}}>
-            <Link to="/forgot-password"> Forgot Password?</Link></a>
+          <Link to="/forgot-password"> Forgot Password?</Link>
+        </a>
       </form>
       <div style={{marginTop: '10px'}}>
         <span>Didn't have an account? </span>
-        <Link to="/business-signup">Sign Up</Link> 
+        <Link to="/business-signup">Sign Up</Link>
       </div>
     </div>
   );
