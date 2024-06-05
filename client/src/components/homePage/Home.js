@@ -1,34 +1,40 @@
-import Calender from "./Calender"
-import ApptList from "./ApptList";
-import React,{useEffect} from "react";
-import { fetchList } from "./apptlistSlice";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import format from "date-fns/format";
-
+import { fetchList } from "../../data/apptlistSlice"; 
+import { fetchRequests } from "../../data/bookingSlice"; 
+import Calender from "./Calender";
+import ApptList from "./ApptList";
 
 const Home = () => {
-      const dispatch = useDispatch();
-      const fetchStatus = useSelector((state) => state.apptList.status);
-      const apptLists =  useSelector((state)=> state.apptList.list)
-      let date = new Date().toJSON().substring(0,10);
+  const dispatch = useDispatch();
+  const fetchStatus = useSelector((state) => state.apptList?.status || "idle");
+  const apptLists = useSelector((state) => state.apptList?.list || []);
+  const requestStatus = useSelector((state) => state.booking?.status || "idle");
+  const bookingRequests = useSelector((state) => state.booking.requests);
 
-    useEffect(() => {
-      //  console.log("fetching the list...")
-      if (fetchStatus === "idle") {
-        dispatch(fetchList(date));
-      }
-     
-    }, [fetchStatus, dispatch]);
+  let date = new Date().toJSON().substring(0, 10);
 
-    console.log("applist:", apptLists);
+  useEffect(() => {
+    if (fetchStatus === "idle") {
+      dispatch(fetchList(date));
+    }
+    if (requestStatus === "idle") {
+      dispatch(fetchRequests());
+    }
+  }, [fetchStatus, requestStatus, dispatch]);
 
-    return(
-        <div className="homepage">
-            <Calender list={apptLists}/>
-            <ApptList />
-        </div>
-    )
-}
+  console.log("Booking requests in Home:", bookingRequests); // Debug statement
 
+  return (
+    <div className="homepage">
+      <Calender list={apptLists} />
+      <ApptList />
+    </div>
+  );
+};
 
 export default Home;
+
+
+
+

@@ -1,0 +1,116 @@
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"], .form-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #d0d0d1;
+  width: 100%;
+  color:#8d8d8d
+}
+
+.form-group button{
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  width:20%;
+  color:#8d8d8d
+  
+}
+.form-group select, .form-group button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #d0d0d1;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7%209l5%205%205-5H7z%22%20fill%3D%22%234A4A4A%22%3E%3C/path%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.h2{
+  size:20px;
+}
+  .tags {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .tag, .add-tag {
+    padding: 5px 10px;
+    background: #eee;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-tag {
+    background: #ddd;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196f3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(14px);
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .save-button, .delete-button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .save-button {
+    background-color: #c5c3c3;
+    color: black;
+  }
+  
+  .delete-button {
+    background-color: #c5c3c3;
+    color: black;
+  }
+  

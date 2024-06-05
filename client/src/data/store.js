@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
+import apptListReducer from "./apptlistSlice";
+import bookingReducer from "./bookingSlice";
 
-import ApptListReducer from "../components/homePage/apptlistSlice.js";
-
-
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    apptList: ApptListReducer,
+    apptList: apptListReducer,
+    booking: bookingReducer,
   },
 });
+
+export default store;
+
 

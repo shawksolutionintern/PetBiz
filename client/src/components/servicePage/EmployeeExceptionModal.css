@@ -1,0 +1,42 @@
+form-group button{
+    border-radius: 8px;
+}
+  
+  h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .employee-list {
+    margin-top: 20px;
+  }
+  
+  .employee-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .employee-item select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .save-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
