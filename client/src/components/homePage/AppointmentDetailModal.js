@@ -1,6 +1,7 @@
 import React from "react";
 import { BsChatRightDots } from "react-icons/bs";
 
+
 const AppointmentDetailModal = ({ request, onClose }) => {
   return (
     <div className="modal-overlay">

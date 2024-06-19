@@ -1,36 +1,26 @@
 import React, { useState } from "react";
-import EmployeeExceptionModal from "./EmployeeExceptionModal";
 import "./ServiceDetail.css";
 
-const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
-  const [serviceName, setServiceName] = useState(service.name);
-  const [serviceType, setServiceType] = useState(service.type);
-  const [price, setPrice] = useState(service.price);
-  const [duration, setDuration] = useState(service.duration);
-  const [serviceId] = useState(service.id);
-  const [customization] = useState("Employee Exceptions");
+const AddServiceModal = ({ onClose, onSave }) => {
+  const [serviceName, setServiceName] = useState("");
+  const [serviceType, setServiceType] = useState("");
+  const [price, setPrice] = useState("");
+  const [duration, setDuration] = useState("");
   const [tags, setTags] = useState(["Dog", "Long Hair"]);
   const [noLongerOffered, setNoLongerOffered] = useState(false);
-  const [isEmployeeExceptionModalOpen, setIsEmployeeExceptionModalOpen] = useState(false);
 
   const handleSave = () => {
-    const updatedService = {
-      ...service,
+    const newService = {
+      id: Math.random().toString(36).substr(2, 9),
       name: serviceName,
       type: serviceType,
       price: price,
       duration: duration,
-      id: serviceId,
-      customization: customization,
       tags: tags,
       noLongerOffered: noLongerOffered,
     };
-    onSave(updatedService);
+    onSave(newService);
     onClose();
-  };
-
-  const handleDelete = () => {
-    onDelete(serviceId);
   };
 
   const handleTagRemove = (tagToRemove) => {
@@ -41,19 +31,11 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
     setTags([...tags, newTag]);
   };
 
-  const handleOpenEmployeeExceptionModal = () => {
-    setIsEmployeeExceptionModalOpen(true);
-  };
-
-  const handleCloseEmployeeExceptionModal = () => {
-    setIsEmployeeExceptionModalOpen(false);
-  };
-
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="close-button" onClick={onClose}>×</button>
-        <h2>Service Details</h2>
+        <h2>Add a new service</h2>
         <form className="service-form">
           <div className="form-group">
             <label>Service Name</label>
@@ -89,16 +71,6 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
             />
           </div>
           <div className="form-group">
-            <label>Service ID</label>
-            <input type="text" value={serviceId} readOnly />
-          </div>
-          <div className="form-group">
-            <label>Service Customization</label>
-            <button type="button" onClick={handleOpenEmployeeExceptionModal}>
-              {customization}
-            </button>
-          </div>
-          <div className="form-group">
             <label>Service Tags</label>
             <div className="tags">
               {tags.map(tag => (
@@ -124,20 +96,14 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
             <button type="button" className="save-button" onClick={handleSave}>
               Save
             </button>
-            <button type="button" className="delete-button" onClick={handleDelete}>
-              Delete
-            </button>
           </div>
         </form>
-        {isEmployeeExceptionModalOpen && (
-          <EmployeeExceptionModal
-            employees={["Becky", "Miranda", "Mike", "Matt"]}
-            onClose={handleCloseEmployeeExceptionModal}
-          />
-        )}
       </div>
     </div>
   );
 };
 
-export default ServiceDetailModal;
+export default AddServiceModal;
+
+
+
