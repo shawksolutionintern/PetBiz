@@ -1,0 +1,17 @@
+.service-list-modal .ant-modal-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .service-list-modal .ant-input-search {
+    margin-bottom: 20px;
+  }
+  
+  .service-list-modal .ant-list-item-meta-title {
+    font-size: 1.2rem;
+  }
+  
+  .service-list-modal .ant-list-item-meta-description {
+    color: #999;
+  }
+  

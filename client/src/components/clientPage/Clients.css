@@ -1,0 +1,87 @@
+.clients-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .clients-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tabs {
+    display: flex;
+  }
+  
+  .tab {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar input {
+    width: 300px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .navbar-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .clients-list {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .client-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .client-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .client-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .client-details {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  
+  .client-name {
+    font-weight: bold;
+  }
+  
+  .client-loyalty {
+    color: #888;
+  }
+  

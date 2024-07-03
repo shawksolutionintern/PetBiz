@@ -1,0 +1,61 @@
+.filter-modal .ant-modal-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.filter-modal .ant-modal-footer {
+  display: none; /* 隐藏默认底部 */
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-buttons .ant-btn {
+  border-radius: 20px;
+  padding: 0 15px;
+  background-color: #f0f0f0;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.filter-buttons .ant-btn:hover,
+.filter-buttons .ant-btn-primary {
+  background-color: #1890ff;
+  color: #fff;
+  border: none;
+}
+
+.filter-buttons .ant-btn:focus,
+.filter-buttons .ant-btn:active {
+  background-color: #1890ff;
+  color: #fff;
+  border: none;
+}
+
+.filter-modal .ant-btn-primary.ant-btn-background-ghost {
+  background-color: #f0f0f0;
+  border-color: #d9d9d9;
+  color: #000;
+}
+
+.filter-modal .ant-btn-primary.ant-btn-background-ghost:hover,
+.filter-modal .ant-btn-primary.ant-btn-background-ghost:focus,
+.filter-modal .ant-btn-primary.ant-btn-background-ghost:active {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+}

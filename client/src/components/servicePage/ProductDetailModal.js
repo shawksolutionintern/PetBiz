@@ -34,6 +34,7 @@ const ProductDetailModal = ({ product, onClose, onSave, onDelete }) => {
     <Modal
       title="Product Details"
       visible={true}
+      onCancel={onClose}
       footer={[
         <Button key="delete" type="danger" onClick={handleDelete}>
           Delete
@@ -42,6 +43,7 @@ const ProductDetailModal = ({ product, onClose, onSave, onDelete }) => {
           Save
         </Button>,
       ]}
+      className="product-detail-modal"
     >
       <Form
         form={form}
