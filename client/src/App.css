@@ -855,7 +855,7 @@
 }
 
 /*CSS for Home Page edit appointment detail*/
-.modal-overlay {
+.modal-overlayd {
   position: fixed;
   top: 0;
   left: 0;
@@ -868,7 +868,7 @@
   z-index: 1000;
 }
 
-.modal-content {
+.modal-contentd {
   background: white;
   padding: 30px;
   border-radius: 8px;
@@ -881,7 +881,7 @@
   flex-direction: column;
 }
 
-.close-button {
+.close-buttond {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -899,7 +899,7 @@ h4{
   margin-top: 15px;
 }
 
-.modal-body {
+.modal-bodyd {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

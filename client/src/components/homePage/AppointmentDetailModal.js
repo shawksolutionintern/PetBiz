@@ -4,12 +4,12 @@ import { BsChatRightDots } from "react-icons/bs";
 
 const AppointmentDetailModal = ({ request, onClose }) => {
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
+    <div className="modal-overlayd">
+      <div className="modal-contentd">
         <button className="close-button" onClick={onClose}>×</button>
         <h2>Appointment Detail</h2>
-        <div className="modal-body">
-          <div className="service-info">
+        <div className="modal-bodyd">
+          <div className="service-infod">
             <h3>Service Info</h3>
             <p><strong>Service:</strong> {request.service}</p>
             <p><strong>Date:</strong> {request.date}</p>

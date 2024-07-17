@@ -21,9 +21,8 @@ import VerificationPage from './components/loginPage/VerificationPage';
 import ResetPassword from './components/loginPage/ResetPassword';
 import CustomerSignup from './components/loginPage/CustomerSignup';
 
-// 保护组件，用于确保用户登录后才能访问某些路由
 const ProtectedRoute = ({ children }) => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn'); // 检查本地存储以确认是否已登录
+  const isLoggedIn = localStorage.getItem('isLoggedIn'); 
   return isLoggedIn ? children : <Navigate to="/login" replace />;
 };
 
@@ -31,7 +30,6 @@ const AppContent = () => {
   const location = useLocation();
   const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-  // 检查当前路径是否为登录页面之一
   const isLoginPage = location.pathname === '/login' || 
                       location.pathname === '/business-login' || 
                       location.pathname === '/customer-login' || 

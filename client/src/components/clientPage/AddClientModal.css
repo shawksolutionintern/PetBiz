@@ -1,0 +1,42 @@
+.ant-form-item .upload-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 160px;
+    margin: 20px auto;
+    border: 2px dashed #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover; 
+  }
+  
+
+  .avatar-uploader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
+  }
+  
+  .avatar-uploader .ant-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .avatar-uploader .ant-upload ant-upload-button {
+    border: none; 
+    background: none; 
+  }
+  
+  .upload-text {
+    margin-top: 8px;
+    color: #888; 
+    font-size: 14px; 
+  }
+  
+  
