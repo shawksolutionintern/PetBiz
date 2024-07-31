@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import "./Clients.css";
 import ClientDetailModal from "./ClientDetailModal";
 import AddClientModal from "./AddClientModal";
-
+import PetDetailModal from "./PetDetailModal"; 
+import AddPetModal from "./AddPetModal"; 
 
 const Clients = () => {
   const [selectedTab, setSelectedTab] = useState("Clients");
   const [isClientModalOpen, setIsClientModalOpen] = useState(false);
   const [isAddClientModalOpen, setIsAddClientModalOpen] = useState(false);
+  const [isPetModalOpen, setIsPetModalOpen] = useState(false);
+  const [isAddPetModalOpen, setIsAddPetModalOpen] = useState(false); 
   const [selectedClient, setSelectedClient] = useState(null);
+  const [selectedPet, setSelectedPet] = useState(null);
   const [clients, setClients] = useState([
+    // clients data
     {
       id: 1,
       name: "Client Name 1",
@@ -39,7 +44,6 @@ const Clients = () => {
         { date: "2023-11-28", purpose: "In-store", item: "Product A", amount: 59.50 },
         { date: "2023-12-03", purpose: "Online", item: "Product B", amount: 59.50 },
         { date: "2024-03-02", purpose: "In-store", item: "Product B", amount: 59.50 },
-
       ],
       upcomingAppointments: [
         { date: "2024-07-20", purpose: "Yearly Checkup" },
@@ -122,6 +126,98 @@ const Clients = () => {
     }
   ]);
 
+  const [pets, setPets] = useState([
+    // pets data
+    {
+      id: 1,
+      name: "Judy",
+      type: "Dog",
+      breed: "Golden Retriever",
+      age: 3,
+      owner: "Client Name 1",
+      avatarUrl: "/pets/dog.jpg",
+      weight: "30 lbs",
+      gender: "Female",
+      dob: "2021-04-01",
+      notes: "Loves to play fetch",
+      active: false,
+      visitHistory: [
+        { date: '2023-01-05', purpose: 'Grooming', appointmentTime: '10 AM', duration: '60 min', employee: 'Emily', price: '$50' },
+        { date: '2023-03-10', purpose: 'Vaccination', appointmentTime: '11 AM', duration: '20 min', employee: 'Dr. Smith', price: '$30' },
+      ],
+      vaccinationRecord: [
+        { date: '2023-01-05', vaccine: 'Rabies', vet: 'Dr. Smith' },
+        { date: '2023-03-10', vaccine: 'Distemper', vet: 'Dr. Johnson' },
+      ]
+    },
+    {
+      id: 2,
+      name: "Max",
+      type: "Cat",
+      breed: "Siamese",
+      age: 5,
+      owner: "Client Name 2",
+      avatarUrl: "/pets/cat.jpg",
+      weight: "12 lbs",
+      gender: "Male",
+      dob: "2019-02-14",
+      notes: "Prefers quiet environments",
+      active: false,
+      visitHistory: [
+        { date: '2023-02-15', purpose: 'Check-up', appointmentTime: '1 PM', duration: '30 min', employee: 'Dr. Lee', price: '$40' },
+        { date: '2023-04-20', purpose: 'Grooming', appointmentTime: '2 PM', duration: '45 min', employee: 'Anna', price: '$60' },
+      ],
+      vaccinationRecord: [
+        { date: '2023-02-15', vaccine: 'FVRCP', vet: 'Dr. Lee' },
+        { date: '2023-04-20', vaccine: 'Rabies', vet: 'Dr. Johnson' },
+      ]
+    },
+    {
+      id: 3,
+      name: "Buddy",
+      type: "Dog",
+      breed: "Bulldog",
+      age: 4,
+      owner: "Client Name 3",
+      avatarUrl: "/pets/dog.jpg",
+      weight: "40 lbs",
+      gender: "Male",
+      dob: "2018-08-25",
+      notes: "Has a sensitive stomach",
+      active: false,
+      visitHistory: [
+        { date: '2023-05-05', purpose: 'Check-up', appointmentTime: '9 AM', duration: '30 min', employee: 'Dr. Brown', price: '$40' },
+        { date: '2023-07-10', purpose: 'Vaccination', appointmentTime: '10 AM', duration: '15 min', employee: 'Dr. Green', price: '$25' },
+      ],
+      vaccinationRecord: [
+        { date: '2023-05-05', vaccine: 'Bordetella', vet: 'Dr. Brown' },
+        { date: '2023-07-10', vaccine: 'Canine Influenza', vet: 'Dr. Green' },
+      ]
+    },
+    {
+      id: 4,
+      name: "Bella",
+      type: "Dog",
+      breed: "Poodle",
+      age: 2,
+      owner: "Client Name 4",
+      avatarUrl: "/pets/dog.jpg",
+      weight: "15 lbs",
+      gender: "Female",
+      dob: "2020-11-11",
+      notes: "Very friendly and playful",
+      active: false,
+      visitHistory: [
+        { date: '2023-06-10', purpose: 'Grooming', appointmentTime: '3 PM', duration: '50 min', employee: 'Sara', price: '$55' },
+        { date: '2023-08-20', purpose: 'Check-up', appointmentTime: '11 AM', duration: '25 min', employee: 'Dr. White', price: '$35' },
+      ],
+      vaccinationRecord: [
+        { date: '2023-06-10', vaccine: 'DHPP', vet: 'Dr. White' },
+        { date: '2023-08-20', vaccine: 'Leptospirosis', vet: 'Dr. Black' },
+      ]
+    }
+  ]);
+
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
@@ -131,13 +227,27 @@ const Clients = () => {
     setIsClientModalOpen(true);
   };
 
+  const handlePetClick = (pet) => {
+    setSelectedPet(pet);
+    setIsPetModalOpen(true);
+  };
+
   const handleCloseClientModal = () => {
     setIsClientModalOpen(false);
     setSelectedClient(null);
   };
 
+  const handleClosePetModal = () => {
+    setIsPetModalOpen(false);
+    setSelectedPet(null);
+  };
+
   const handleSaveClient = (updatedClient) => {
     setClients(clients.map(client => client.id === updatedClient.id ? updatedClient : client));
+  };
+
+  const handleSavePet = (updatedPet) => {
+    setPets(pets.map(pet => pet.id === updatedPet.id ? updatedPet : pet));
   };
 
   const handleDeleteClient = (clientId) => {
@@ -145,75 +255,117 @@ const Clients = () => {
     handleCloseClientModal();
   };
 
+  const handleDeletePet = (petId) => {
+    setPets(pets.filter(pet => pet.id !== petId));
+    handleClosePetModal();
+  };
+
   const handleAddButtonClick = () => {
-    setIsAddClientModalOpen(true);
+    if (selectedTab === "Clients") {
+      setIsAddClientModalOpen(true);
+    } else {
+      setIsAddPetModalOpen(true);
+    }
   };
 
   const handleAddClient = (newClient) => {
     setClients([...clients, newClient]);
   };
 
+  const handleAddPet = (newPet) => {
+    setPets([...pets, newPet]);
+  };
+
   const handleCloseAddClientModal = () => {
     setIsAddClientModalOpen(false);
   };
 
+  const handleCloseAddPetModal = () => {
+    setIsAddPetModalOpen(false);
+  };
+
   return (
-      <div className="clients-page">
-        <div className="clients-navbar">
-          <div className="tabs">
-            <div
-              className={`tab ${selectedTab === "Clients" ? "active" : ""}`}
-              onClick={() => handleTabChange("Clients")}
-            >
-              Clients
-            </div>
-            <div
-              className={`tab ${selectedTab === "Pets" ? "active" : ""}`}
-              onClick={() => handleTabChange("Pets")}
-            >
-              Pets
-            </div>
+    <div className="clients-page">
+      <div className="clients-navbar">
+        <div className="tabs">
+          <div
+            className={`tab ${selectedTab === "Clients" ? "active" : ""}`}
+            onClick={() => handleTabChange("Clients")}
+          >
+            Clients
           </div>
-          <div className="search-bar">
-            <input type="text" placeholder="Search" />
-          </div>
-          <div className="navbar-icons">
-            <span className="icon" onClick={handleAddButtonClick}>＋</span>
+          <div
+            className={`tab ${selectedTab === "Pets" ? "active" : ""}`}
+            onClick={() => handleTabChange("Pets")}
+          >
+            Pets
           </div>
         </div>
-        <div className="clients-list">
-          {clients.map((client) => (
-            <div key={client.id} className="client-item" onClick={() => handleClientClick(client)}>
-              <img src={client.avatarUrl} alt={`${client.name} Avatar`} className="client-avatar" />
-              <div className="client-info">
-                <div className="client-name">{client.name}</div>
-                <div className="client-loyalty">{client.loyaltyId}</div>
-              </div>
-              <div className="client-details">
-                <div className="client-tel">{client.tel}</div>
-                <div className="client-email">{client.email}</div>
-              </div>
-            </div>
-          ))}
+        <div className="search-bar">
+          <input type="text" placeholder="Search" />
         </div>
-        {isClientModalOpen && selectedClient && (
-          <ClientDetailModal
-            client={selectedClient}
-            onClose={handleCloseClientModal}
-            onSave={handleSaveClient}
-            onDelete={handleDeleteClient}
-          />
-        )}
-        {isAddClientModalOpen && (
-          <AddClientModal
-            onClose={handleCloseAddClientModal}
-            onSave={handleAddClient}
-          />
-        )}
+        <div className="navbar-icons">
+          <span className="icon" onClick={handleAddButtonClick}>＋</span>
+        </div>
       </div>
+      <div className="clients-list">
+        {selectedTab === "Clients" && clients.map((client) => (
+          <div key={client.id} className="client-item" onClick={() => handleClientClick(client)}>
+            <img src={client.avatarUrl} alt={`${client.name} Avatar`} className="client-avatar" />
+            <div className="client-info">
+              <div className="client-name">{client.name}</div>
+              <div className="client-loyalty">{client.loyaltyId}</div>
+            </div>
+            <div className="client-details">
+              <div className="client-tel">{client.tel}</div>
+              <div className="client-email">{client.email}</div>
+            </div>
+          </div>
+        ))}
+        {selectedTab === "Pets" && pets.map((pet) => (
+          <div key={pet.id} className="client-item" onClick={() => handlePetClick(pet)}>
+            <img src={pet.avatarUrl} alt={`${pet.name} Avatar`} className="client-avatar" />
+            <div className="client-info">
+              <div className="client-name">{pet.name}</div>
+              <div className="client-loyalty">{pet.type} - {pet.breed}</div>
+            </div>
+            <div className="client-details">
+              <div className="client-tel">{pet.age} years old</div>
+              <div className="client-email">Owner: {pet.owner}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {isClientModalOpen && selectedClient && (
+        <ClientDetailModal
+          client={selectedClient}
+          onClose={handleCloseClientModal}
+          onSave={handleSaveClient}
+          onDelete={handleDeleteClient}
+        />
+      )}
+      {isPetModalOpen && selectedPet && (
+        <PetDetailModal
+          pet={selectedPet}
+          onClose={handleClosePetModal}
+          onSave={handleSavePet}
+          onDelete={handleDeletePet}
+        />
+      )}
+      {isAddClientModalOpen && (
+        <AddClientModal
+          onClose={handleCloseAddClientModal}
+          onSave={handleAddClient}
+        />
+      )}
+      {isAddPetModalOpen && (
+        <AddPetModal
+          onClose={handleCloseAddPetModal}
+          onSave={handleAddPet}
+        />
+      )}
+    </div>
   );
 };
 
 export default Clients;
-
-

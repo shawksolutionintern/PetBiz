@@ -1,0 +1,91 @@
+.visit-history-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+    align-items: center;
+  }
+  
+  .modal-title {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    margin: 16px 20px;
+  }
+  
+  .visit-history-list {
+    padding: 0 20px;
+  }
+  
+  .visit-history-collapse {
+    width: 100%;
+  }
+  
+  .visit-summary {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .visit-purpose {
+    font-weight: bold;
+  }
+  
+  .visit-date {
+    color: #999;
+  }
+  
+  .visit-details p {
+    margin: 0;
+  }
+  
+  .ant-collapse-header {
+    font-weight: bold;
+    background-color: transparent; /* Remove background color on hover */
+    transition: none; /* Remove transition effect */
+  }
+  
+  .ant-collapse-header:hover {
+    color: inherit; /* Remove color change on hover */
+    background-color: transparent; /* Ensure background color stays transparent */
+  }
+  
+  .ant-collapse-item {
+    transition: none; /* Remove transition effect */
+  }
+  
+  .ant-collapse-item-active > .ant-collapse-header {
+    background-color: transparent; /* Remove active background color */
+  }
+  
+  .ant-collapse-item-active > .ant-collapse-header:hover {
+    background-color: transparent; /* Ensure background color stays transparent */
+  }
+  
+  .ant-list-item {
+    transition: none; 
+  }
+  
+  .ant-list-item:hover {
+    background-color: transparent; 
+  }
+  
+  .ant-modal-body {
+    padding: 24px;
+  }
+  
+  .client-stats {
+    margin-top: 16px;
+  }
+  
+  .visit-history-content {
+    margin-bottom: 245px;
+  }
+  
+  .visit-history-panel {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  

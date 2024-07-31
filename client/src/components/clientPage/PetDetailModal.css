@@ -1,0 +1,23 @@
+.pet-avatar {
+  width: 160px; 
+  height: 160px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  margin-bottom: 10px; 
+}
+
+.pet-stats p {
+  margin: 5px 0; 
+}
+
+.custom-link {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 5px 0; 
+  margin-top: 5px;
+}
+
+.custom-link:hover {
+  color: grey;
+}

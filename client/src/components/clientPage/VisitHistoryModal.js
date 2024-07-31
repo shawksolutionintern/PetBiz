@@ -11,8 +11,8 @@ const VisitHistoryModal = ({ visible, onClose, data }) => (
     visible={visible}
     onCancel={onClose}
     footer={null}
-    width={900} // 与 ClientDetailModal 一样大
-    bodyStyle={{ padding: 0 }} // 去掉内边距
+    width={900} 
+    bodyStyle={{ padding: 0 }} 
   >
     <div className="visit-history-header">
       <Search placeholder="Search" style={{ marginBottom: 16, padding: '10px 20px' }} />

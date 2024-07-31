@@ -1,14 +1,36 @@
+.upcoming-appointments-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
 .upcoming-appointments-content {
-    padding: 20px;
-  }
-  
-  .ant-list-item {
-    cursor: pointer;
-    padding: 10px 20px;
-    border-bottom: 1px solid #e8e8e8;
-  }
-  
-  .ant-list-item:hover {
-    background-color: #f5f5f5;
-  }
-  
+  padding: 24px;
+  margin-bottom: 245px; 
+}
+
+.upcoming-appointments-item {
+  margin-top: 10px; 
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.ant-list-item:hover {
+  background-color: #848080; 
+}
+
+.ant-modal-body {
+  padding: 24px; 
+}
+
+.client-stats {
+  margin-top: 16px;
+}
+
+.custom-link:hover {
+  color: grey;
+}
+
+
+.ant-list-item-header {
+  font-weight: bold; 
+}

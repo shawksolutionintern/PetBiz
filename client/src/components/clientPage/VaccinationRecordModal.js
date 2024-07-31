@@ -1,8 +1,7 @@
 import React from 'react';
-import { Modal } from 'antd';
-import './SignedContractModal.css'
+import { Modal} from 'antd';
 
-const SignedContractModal = ({ visible, onClose }) => {
+const VaccinationRecordModal = ({ visible, onClose, data }) => {
   const pdfPlaceholder = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
   return (
     <Modal
@@ -23,4 +22,4 @@ const SignedContractModal = ({ visible, onClose }) => {
   );
 };
 
-export default SignedContractModal;
+export default VaccinationRecordModal;

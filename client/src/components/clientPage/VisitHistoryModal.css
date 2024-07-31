@@ -13,13 +13,9 @@
   .client-stats {
     margin-top: 16px;
   }
-  
-  .custom-link:hover {
-    color: grey;
-  }
 
   .visit-history-content{
-    margin-bottom: 245px;
+    margin-bottom: 240px;
   }
 
   .visit-history-panel {
