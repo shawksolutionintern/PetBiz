@@ -1,62 +1,70 @@
-import React from 'react';
-import { List, Typography } from 'antd';
-import { RightOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
+import PdfViewModal from './PdfViewModal';
 import './AllReport.css';
 
-const { Title } = Typography;
-
 const AllReport = () => {
-  const reportData = [
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [currentPdfUrl, setCurrentPdfUrl] = useState('');
+  const [modalTitle, setModalTitle] = useState('');
+
+  const sections = [
     {
-      category: 'Sales',
+      title: "Sales",
       items: [
-        { title: 'Sales Totals', description: 'Total sales and sales tax', pdf: 'path_to_sales_totals_pdf' },
-        { title: 'Sales by Employee Category', description: 'Sales totals grouped by employee category', pdf: 'path_to_employee_sales_pdf' },
-        { title: 'Client Membership Cost/Revenue', description: 'Total membership payments for all clients with membership', pdf: 'path_to_client_membership_pdf' },
-        { title: 'Sales Totals', description: 'Total sales and sales tax', pdf: 'path_to_sales_totals_pdf' }
+        { name: "Sales Totals", subtitle: "Total sales and sales tax", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+        { name: "Sales by Employee Category", subtitle: "Sales totals grouped by employee category", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+        { name: "Client Membership Cost/Revenue", subtitle: "Total membership payments for all clients with membership", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
       ]
     },
     {
-      category: 'Clients',
+      title: "Clients",
       items: [
-        { title: 'Client Loyalty Point Balance', description: 'Current loyalty point balance for all clients', pdf: 'path_to_loyalty_point_pdf' },
-        { title: 'Client reviews', description: 'Clients\' review on services and products', pdf: 'path_to_client_reviews_pdf' }
+        { name: "Client Loyalty Point Balance", subtitle: "Current loyalty point balance for all clients", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+        { name: "Client Reviews", subtitle: "Clients' review on services and products", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
       ]
     },
     {
-      category: 'Products',
+      title: "Products",
       items: [
-        { title: 'Product Sales Report', description: 'Detailed report on product sales', pdf: 'path_to_product_sales_pdf' }
+        { name: "Product Sales", subtitle: "Total product sales", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+        { name: "Inventory Status", subtitle: "Current inventory status", pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
       ]
     }
   ];
 
-  const handleItemClick = (pdf) => {
-    console.log(`PDF to open: ${pdf}`);
+  const handleItemClick = (item) => {
+    setCurrentPdfUrl(item.pdfUrl);
+    setModalTitle(item.name);
+    setIsModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
   };
 
   return (
-    <div className="all-reports-container">
-      <div className="all-reports-content">
-        {reportData.map((section, index) => (
-          <div key={index} className="report-section">
-            <Title level={4} className="section-title">{section.category}</Title>
-            <List
-              itemLayout="horizontal"
-              dataSource={section.items}
-              renderItem={item => (
-                <List.Item onClick={() => handleItemClick(item.pdf)} className="report-item">
-                  <List.Item.Meta
-                    title={item.title}
-                    description={item.description}
-                  />
-                  <RightOutlined className="right-outlined-icon" />
-                </List.Item>
-              )}
-            />
-          </div>
-        ))}
-      </div>
+    <div className="allreport-container">
+      {sections.map((section, index) => (
+        <div key={index} className="allreport-section">
+          <h2>{section.title}</h2>
+          <ul>
+            {section.items.map((item, idx) => (
+              <li key={idx} onClick={() => handleItemClick(item)}>
+                <div>
+                  <div className="allreport-item-title">{item.name}</div>
+                  <div className="allreport-item-subtitle">{item.subtitle}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <PdfViewModal
+        visible={isModalVisible}
+        onClose={handleModalClose}
+        pdfUrl={currentPdfUrl}
+        title={modalTitle}
+      />
     </div>
   );
 };

@@ -5,7 +5,7 @@ const VaccinationRecordModal = ({ visible, onClose, data }) => {
   const pdfPlaceholder = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
   return (
     <Modal
-      title="Signed Contract"
+      title="Vaccination Record"
       visible={visible}
       onCancel={onClose}
       footer={null}

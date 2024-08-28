@@ -60,8 +60,8 @@ const Report = () => {
       { type: 'Category 4', value: 145 },
       { type: 'Category 5', value: 48 },
     ],
-    xField: 'value',
-    yField: 'type',
+    xField: 'type',
+    yField: 'value',
     seriesField: 'type',
     legend: { position: 'top-left' },
   };
