@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 
 function CustomerLogin() {
   const [error, setError] = useState(false);
+  const navigate = useNavigate();  
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
     setError(true); 
+
+    if (email === "linjun0206@gmail.com" && password === "password") {
+      localStorage.setItem('isLoggedIn', true);  // 设置登录状态
+      localStorage.setItem('userType', 'customer');
+      navigate('/home');  
+    } else {
+      setError(true);  
+    }
   };
 
   return (

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaCalendarAlt, FaPaw, FaUserFriends, FaChartBar, FaRegUserCircle, FaRegEnvelope, FaCog } from 'react-icons/fa';
+import { FaCalendarAlt, FaPaw, FaUserFriends, FaChartBar, FaRegUserCircle, FaRegEnvelope, FaCog, FaBoxOpen } from 'react-icons/fa';
 
 function NavBar() {
+  // 获取用户类型
+  const userType = localStorage.getItem('userType');
+
   return (
     <div className="navbar">
       <div className="logo">Petbiz</div>
@@ -30,6 +33,12 @@ function NavBar() {
         <FaRegEnvelope size={28}/>
         <span>Message</span>
       </Link>
+      {userType === 'customer' && (
+        <Link to="/purchase" className="nav-item nav-link">
+          <FaBoxOpen size={28}/>
+          <span>Purchase</span>
+        </Link>
+      )}
       <Link to="/setting" className="nav-item nav-item-bottom nav-link">
         <FaCog size={28}/>
         <span>Setting</span>
@@ -39,3 +48,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

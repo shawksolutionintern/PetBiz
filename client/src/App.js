@@ -20,7 +20,7 @@ import ForgotPassword from './components/loginPage/ForgotPassword';
 import VerificationPage from './components/loginPage/VerificationPage';
 import ResetPassword from './components/loginPage/ResetPassword';
 import CustomerSignup from './components/loginPage/CustomerSignup';
-
+import Purchase from './components/PurchasePage/Purchase';
 const ProtectedRoute = ({ children }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn'); 
   return isLoggedIn ? children : <Navigate to="/login" replace />;
@@ -63,6 +63,8 @@ const AppContent = () => {
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/message" element={<ProtectedRoute><Message /></ProtectedRoute>} />
           <Route path="/setting" element={<ProtectedRoute><Setting /></ProtectedRoute>} />
+          <Route path="/purchase" element={<ProtectedRoute><Purchase /></ProtectedRoute>} />
+          
         </Routes>
       </div>
     </div>
