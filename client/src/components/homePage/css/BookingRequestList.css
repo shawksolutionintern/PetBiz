@@ -1,0 +1,101 @@
+.booking-requests {
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+  
+  .booking-request {
+    padding: 12px 0;
+    background-color: #ffffff;
+    position: relative;
+  }
+  
+  .request-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-left: 1px;
+  }
+  
+  .request-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .request-user {
+    margin-right: 12px;
+  }
+  
+  .user-icon {
+    background-color: #ccc;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .request-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .service-name {
+    font-weight: bold;
+    font-size: 22px;
+    color: #333;
+    text-decoration: underline; 
+  }
+  
+  .request-time {
+    color: #1E1D1D ;
+    font-size: 18px;
+  }
+  
+  .request-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 30px;
+  }
+  
+  .request-buttons button {
+    width: 107px;
+    height: 36px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .request-buttons .accept {
+    background-color: #D9D9D9;
+    margin-right: 35px;
+    color: #000000;
+    font-size: 16px;
+  }
+  
+  .request-buttons .reject {
+    background-color: #D9D9D9;
+    margin-right: 35px;
+    color: #000000;
+    font-size: 16px;
+  }
+  
+  .request-buttons .edit {
+    background-color: #D9D9D9;
+    color: #000000;
+    font-size: 16px;
+  }
+  
+  .divider {
+    border-top: 1px dashed #ccc;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  

@@ -19,14 +19,14 @@
     font-size: 24px;
   }
   
-  .title {
+  .titleNext {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 28px;
     line-height: 33.89px;
     text-align: center;
     color: #000000;
-    top: 97px;
+    margin-top: 8%;
   }
   
   form {

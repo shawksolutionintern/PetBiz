@@ -31,7 +31,7 @@ function SignUp() {
   return (
     <div className="signup-container">
       <FaArrowLeft className="arrow-left" onClick={handleBack} />
-      <h1 className="title">Create Account</h1>
+      <h1 className="titleBs">Create Account</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="fullName" className="label">Full Name</label>

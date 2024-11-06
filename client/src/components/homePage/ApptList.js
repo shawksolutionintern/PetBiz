@@ -23,6 +23,15 @@ const MonthCalender = () => {
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         aspectRatio={1.5}
         initialView={"dayGridMonth"}
+        headerToolbar={{
+          left: 'prev',       
+          center: 'title',    
+          right: 'next'       
+        }}
+        buttonText={{
+          prev: '<',          
+          next: '>'           
+        }}
       />
     </div>
   );

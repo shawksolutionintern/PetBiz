@@ -15,7 +15,7 @@ function LoginPage() {
 
   return (
     <div className="login-container">
-      <h1 className="title">Petbiz</h1>
+      <h1 className="titlelogin">Petbiz</h1>
       <button className="business" onClick={handleBusinessLogin}>Business Account</button>
       <button className="customer" onClick={handleCustomerLogin}>Customer Account</button>
     </div>

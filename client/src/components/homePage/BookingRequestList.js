@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import AppointmentDetailModal from "./AppointmentDetailModal"; // Import the detail modal component
-import EditAppointmentModal from "./EditAppointmentModal"; // Import the edit modal component
-import ConfirmationModal from "./ConfirmationModal"; // Import the confirmation modal component
+import AppointmentDetailModal from "./AppointmentDetailModal";
+import EditAppointmentModal from "./EditAppointmentModal";
+import ConfirmationModal from "./ConfirmationModal"; 
+import './css/BookingRequestList.css';
 
 const BookingRequestList = () => {
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
@@ -101,24 +102,24 @@ const BookingRequestList = () => {
 
   return (
     <div className="booking-requests">
-      <h2>Booking Requests</h2>
       {bookingRequests.map((request, index) => (
         <div key={index} className="booking-request">
-          <div className="request-header">
+          <h3 className="request-title">Booking Request {request.id}</h3>
+          <div className="request-content">
             <div className="request-user">
               <div className="user-icon">{request.user.charAt(0)}</div>
-              <div className="user-name">{request.user}</div>
             </div>
             <div className="request-details" onClick={() => handleViewDetail(request)}>
-              <div className="request-title">{request.service}</div>
+              <div className="service-name">{request.service}</div>
               <div className="request-time">{request.date} at {request.time}</div>
             </div>
           </div>
           <div className="request-buttons">
-            <button onClick={() => handleAccept(request)}>Accept</button>
-            <button onClick={() => handleReject(request)}>Reject</button>
-            <button onClick={() => handleEdit(request)}>Edit</button>
+            <button onClick={() => handleAccept(request)} className="accept">Accept</button>
+            <button onClick={() => handleReject(request)} className="reject">Reject</button>
+            <button onClick={() => handleEdit(request)} className="edit">Edit</button>
           </div>
+          {index < bookingRequests.length - 1 && <hr className="divider" />}
         </div>
       ))}
       {isDetailModalOpen && selectedRequest && (

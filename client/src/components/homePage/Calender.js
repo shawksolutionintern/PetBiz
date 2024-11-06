@@ -18,7 +18,6 @@ const Calender = ({list}) => {
 
   return (
     <div className="calender">
-  
       <FullCalendar
         plugins={[
           dayGridPlugin,
@@ -27,6 +26,11 @@ const Calender = ({list}) => {
         ]}
         initialView={"timeGridDay"}
         events={fullcalendarArr}
+        headerToolbar={{
+          left: 'title',  
+          center: '',
+          right: ''
+        }}
       />
     </div>
   );

@@ -6,6 +6,7 @@ import Calender from "./Calender";
 import ApptList from "./ApptList";
 import AppointmentForm from "./AppointmentForm";
 import { Button } from "antd";
+import './css/HomePage.css';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const Home = () => {
         className="make-appointment-button"
         onClick={() => setOpen(true)}
       >
-        Make an Appointment
+        + Make an Appointment
       </Button>
       <Calender list={apptLists} />
       <ApptList />

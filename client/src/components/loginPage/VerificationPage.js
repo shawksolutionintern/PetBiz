@@ -30,7 +30,7 @@ const VerificationPage = () => {
   return (
     <div className="verification-container">
       <FaArrowLeft className="arrow-left" onClick={() => navigate(-1)} />
-      <h1 className="title">Forgot Password?</h1>
+      <h1 className="titleBs">Forgot Password?</h1>
       <p className="line1">Enter your verification code to reset your password</p>
       <p className="line2">Enter Your Verification Code</p>
       <form onSubmit={handleSubmit}>

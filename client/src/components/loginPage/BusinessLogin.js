@@ -24,7 +24,7 @@ function BusinessLogin() {
 
   return (
     <div className="business-container">
-      <h1 className="title">Petbiz</h1>
+      <h1 className="titlelogin">Petbiz</h1>
       <div className="line-container">
         <span className="line"></span>
         <h2 className="subtitle">BUSINESS LOGIN/SIGN UP</h2>

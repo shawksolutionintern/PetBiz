@@ -26,7 +26,7 @@ const NextStep = () => {
   return (
     <div className="nextstep-container">
       <FaArrowLeft className="arrow-left" onClick={() => window.history.back()} />
-      <h1 className="title">Create Account</h1>
+      <h1 className="titleNext">Create Account</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email" className="label">Email Address</label>

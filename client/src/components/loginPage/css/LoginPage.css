@@ -4,11 +4,11 @@
     height: 982px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Horizontally center */
+    align-items: center; 
     position: relative;
   }
   
-  .title {
+  .titlelogin {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 60px;
