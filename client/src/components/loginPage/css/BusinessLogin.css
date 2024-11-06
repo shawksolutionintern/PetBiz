@@ -1,0 +1,156 @@
+.business-container {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 72.61px;
+    text-align: center;
+    color: #000000;
+    margin-top: 30px;
+  }
+  
+  .line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 281px;
+  }
+  
+  .line {
+    width: 431px;
+    height: 1px;
+    background-color: #717171;
+    top:281px;
+  }
+  
+  .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 33.89px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+    width: 624px;
+    margin-bottom: 5px;
+  }
+  
+  .input {
+    width: 624px;
+    height: 56px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    border: none;
+    outline: none;
+    margin-bottom: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  .remember-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 624px;
+    margin-bottom: 30px;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background-color: #D9D9D9;
+    appearance: none; 
+  }
+  
+  .remember-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+  }
+  
+  .forgot-password {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: underline;
+  }
+  
+  .sign-in-button {
+    width: 279px;
+    height: 56px;
+    border-radius: 40px;
+    background-color: #ced0d3;
+    color: #000000;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  .sign-up-container {
+    display: flex;
+    justify-content: space-between;
+    width: 624px;
+  }
+  
+  .sign-up {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+    text-decoration: underline;
+  }
+
+  .account{
+    font-family: 'Inter', sans-serif;
+    font-size:18px;
+    color:#000000;
+  }
+
+  .error-message{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: center;
+    margin-bottom: 3px;
+    color:#FF0000;
+}

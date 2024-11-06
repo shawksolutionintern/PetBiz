@@ -1,56 +1,98 @@
 import React, { useState } from 'react';
+import { FaArrowLeft } from "react-icons/fa6";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa"; 
+import { CiCircleCheck } from "react-icons/ci"; 
+import './css/ResetPassword.css';
 
 const ResetPassword = () => {
-  const [newPassword, setNewPassword] = useState('');
+  const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const isMinLength = password.length >= 8;
+  const hasNumber = /\d/.test(password);
+  const hasUpperAndLowerCase = /(?=.*[a-z])(?=.*[A-Z])/.test(password);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (newPassword !== confirmPassword) {
+    if (password !== confirmPassword) {
       alert("Passwords don't match!");
       return;
     }
-    console.log('New Password Set:', newPassword);
-    // Add further processing here for password reset logic
+    console.log('Password reset successfully:', password);
   };
 
   return (
-    <div className="reset-password-container">
-      <h1>Reset Password</h1>
-      <p>Enter your new password to reset your password</p>
+    <div className="reset-password-page">
+      <FaArrowLeft className="arrow-left" onClick={() => window.history.back()} />
+      <h1 className="title">Reset Password</h1>
+      <p className="instruction">Enter your new password to reset your password</p>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="newPassword">Enter Your New Password</label>
-          <input 
-            type="password" 
-            id="newPassword" 
-            value={newPassword} 
-            onChange={(e) => setNewPassword(e.target.value)} 
-            required 
-          />
+          <label htmlFor="password" className="label">Password</label>
+          <div className="password-input-container">
+            <input 
+              type={showPassword ? "text" : "password"}
+              id="password"
+              className="input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {showPassword ? (
+              <FaRegEye 
+                className="toggle-password" 
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <FaRegEyeSlash 
+                className="toggle-password" 
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
+          </div>
         </div>
         <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Your New Password</label>
-          <input 
-            type="password" 
-            id="confirmPassword" 
-            value={confirmPassword} 
-            onChange={(e) => setConfirmPassword(e.target.value)} 
-            required 
-          />
+          <label htmlFor="confirmPassword" className="label">Confirm Password</label>
+          <div className="password-input-container">
+            <input 
+              type={showConfirmPassword ? "text" : "password"}
+              id="confirmPassword"
+              className="input"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            {showConfirmPassword ? (
+              <FaRegEye 
+                className="toggle-password" 
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              />
+            ) : (
+              <FaRegEyeSlash 
+                className="toggle-password" 
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              />
+            )}
+          </div>
         </div>
         <div className="password-criteria">
-          <p>Password must contain:</p>
-          <ul>
-            <li>At least 8 characters</li>
-            <li>At least 1 number</li>
-            <li>Both upper and lower case letters</li>
-          </ul>
+          <div className={`criteria ${isMinLength ? 'met' : ''}`}>
+            <CiCircleCheck /> At least 8 characters
+          </div>
+          <div className={`criteria ${hasNumber ? 'met' : ''}`}>
+            <CiCircleCheck /> At least 1 number
+          </div>
+          <div className={`criteria ${hasUpperAndLowerCase ? 'met' : ''}`}>
+            <CiCircleCheck /> Both upper and lower case letters
+          </div>
         </div>
-        <button type="submit">Reset</button>
+        <button type="submit" className="reset-button">Reset</button>
       </form>
     </div>
   );
 };
 
 export default ResetPassword;
+

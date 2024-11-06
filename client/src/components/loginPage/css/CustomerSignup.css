@@ -1,0 +1,103 @@
+.customer-signup {
+    width: 100%;
+    max-width: 500px; 
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+
+  .title {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    top:30px;
+  }
+  
+  .customer-signup h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px; 
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 624px;
+    align-items: flex-start !important;
+  }
+  
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400 !important;
+    line-height: 21.78px;
+    text-align: left;
+    color: #000000;
+    margin-bottom: 5px !important ;
+    display: block;
+  }
+  
+  .form-group input[type="username"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    box-sizing: border-box; 
+  }
+  
+  .password-criteria {
+    margin-bottom: 20px;
+    color:#969696
+  }
+  
+  
+  .policy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .policy input[type="checkbox"] {
+    margin-right: 10px; 
+  }
+  
+  .policy label {
+    margin: 0; 
+  }
+  
+  .customer-signup button {
+    width: 279px;
+    height: 56px;
+    border-radius: 40px;
+    background-color: #ced0d3;
+    color: #000000;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .customer-signup .underline:hover{
+    text-decoration: underline;
+  }
+  
+  

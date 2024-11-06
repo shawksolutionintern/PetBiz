@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FaCalendarAlt, FaPaw, FaUserFriends, FaChartBar, FaRegUserCircle, FaRegEnvelope, FaCog, FaBoxOpen } from 'react-icons/fa';
 
 function NavBar() {
-  // 获取用户类型
   const userType = localStorage.getItem('userType');
 
   return (

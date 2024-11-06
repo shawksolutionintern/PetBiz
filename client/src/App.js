@@ -33,7 +33,8 @@ const AppContent = () => {
   const isLoginPage = location.pathname === '/login' || 
                       location.pathname === '/business-login' || 
                       location.pathname === '/customer-login' || 
-                      location.pathname === '/business-signup' || 
+                      location.pathname === '/business-signup' ||
+                      location.pathname === '/next-page' || 
                       location.pathname === '/forgot-password' || 
                       location.pathname === '/verification-page' || 
                       location.pathname === '/reset-password' || 

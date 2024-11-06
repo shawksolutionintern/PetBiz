@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './css/LoginPage.css';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function LoginPage() {
 
   return (
     <div className="login-container">
-      <h1>Petbiz</h1>
+      <h1 className="title">Petbiz</h1>
       <button className="business" onClick={handleBusinessLogin}>Business Account</button>
       <button className="customer" onClick={handleCustomerLogin}>Customer Account</button>
     </div>

@@ -1,0 +1,100 @@
+.signup-container {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .arrow-left {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 97px;
+    left: 112px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33.89px;
+    text-align: center;
+    color: #000000;
+    top: 97px;
+    width: 516px;
+    height: 27px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px; 
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 624px;
+    align-items: flex-start !important;
+  }
+  
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400 !important;
+    line-height: 21.78px;
+    text-align: left;
+    color: #000000;
+    margin-bottom: 5px !important ;
+    display: block;
+  }
+  
+  .input {
+    width: 100%;
+    height: 56px;
+    border-radius: 10px;
+    background-color: #d9d9d9 !important;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  .dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2216%22%20height%3D%228.96%22%20viewBox%3D%220%200%2016%208.96%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1%201L8%208L15%201%22%20stroke%3D%22%23525050%22%20stroke-width%3D%222%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 20px center; 
+    background-color: #d9d9d9 !important; 
+  }
+  
+  .sign-in-button {
+    width: 279px;
+    height: 56px;
+    border-radius: 40px;
+    background-color: #d9d9d9;
+    color: #000000;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  
