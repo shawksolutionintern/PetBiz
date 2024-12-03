@@ -1,30 +1,17 @@
 import React, { useState } from "react";
+import { CiSquareChevLeft } from "react-icons/ci";
+import { FaChevronDown } from "react-icons/fa";
 import "./EmployeeExceptionModal.css";
 
 const EmployeeExceptionModal = ({ onClose }) => {
-  // Mock employee information
   const employees = [
-    { name: 'Becky', price: 30, duration: 30 },
-    { name: 'Miranda', price: 35, duration: 45 },
-    { name: 'Mike', price: 40, duration: 60 },
-    { name: 'Matt', price: 25, duration: 30 }
+    { name: "Becky", price: 30, duration: 30 },
+    { name: "Miranda", price: 35, duration: 45 },
+    { name: "Mike", price: 40, duration: 60 },
+    { name: "Matt", price: 25, duration: 30 },
   ];
 
-  const [employeeStatuses, setEmployeeStatuses] = useState(
-    employees.reduce((acc, employee) => {
-      acc[employee.name] = "On";
-      return acc;
-    }, {})
-  );
-
   const [expandedEmployee, setExpandedEmployee] = useState(null);
-
-  const handleStatusChange = (employeeName, status) => {
-    setEmployeeStatuses({
-      ...employeeStatuses,
-      [employeeName]: status,
-    });
-  };
 
   const toggleEmployeeDetails = (employeeName) => {
     setExpandedEmployee(expandedEmployee === employeeName ? null : employeeName);
@@ -32,45 +19,62 @@ const EmployeeExceptionModal = ({ onClose }) => {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="close-button" onClick={onClose}>×</button>
-        <h2>Employee Exceptions</h2>
+      <div className="modal-content-ee">
+        <div className="modal-header-ee">
+          <CiSquareChevLeft className="back-icon" onClick={onClose} />
+          <h2 className="modal-title-ee">Service Detail</h2>
+        </div>
+        <div className="form-group-ee">
+          <label>Employee Exceptions</label>
+          <label className="switch-ee">
+            <input type="checkbox" />
+            <span className="slider-round"></span>
+          </label>
+        </div>
+        <h2 className="elist-name">Employee List</h2>
         <div className="employee-list">
           {employees.map((employee) => (
-            <div key={employee.name} className="employee-item">
+            <div
+              key={employee.name}
+              className={`employee-box ${expandedEmployee === employee.name ? "expanded" : "collapsed"
+                }`}
+            >
               <div className="employee-header" onClick={() => toggleEmployeeDetails(employee.name)}>
-                <span>{employee.name}</span>
-                <select
-                  value={employeeStatuses[employee.name]}
-                  onChange={(e) => handleStatusChange(employee.name, e.target.value)}
+                <span
+                  className={`employee-name ${expandedEmployee === employee.name ? "active" : ""
+                    }`}
                 >
-                  <option value="On">On</option>
-                  <option value="Off">Off</option>
-                </select>
-                <button className="toggle-button">
-                  {expandedEmployee === employee.name ? '▲' : '▼'}
-                </button>
+                  {employee.name}
+                </span>
+                <div className="employee-status">
+                  <span>On</span>
+                  <FaChevronDown className="chevron-icon" />
+                </div>
               </div>
+
+              {/* 分割线 */}
+              {expandedEmployee === employee.name && <div className="divider"></div>}
+
+              {/* 展开内容 */}
               {expandedEmployee === employee.name && (
-                <div className="employee-details">
-                  <p>Price: ${employee.price}</p>
-                  <p>Duration: {employee.duration} Minutes</p>
+                <div className="dropdown-menu">
+                  <p className="dropdown-item">
+                    <span>Price</span>
+                    <span className="price">${employee.price}</span>
+                  </p>
+                  <p className="dropdown-item">
+                    <span>Duration</span>
+                    <span className="price">{employee.duration} Minutes</span>
+                  </p>
                 </div>
               )}
             </div>
           ))}
-        </div>
-        <div className="form-actions">
-          <button type="button" className="save-buttonee" onClick={onClose}>
-            Save
-          </button>
         </div>
       </div>
     </div>
   );
 };
 
+
 export default EmployeeExceptionModal;
-
-
-

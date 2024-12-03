@@ -13,7 +13,6 @@ const Home = () => {
   const fetchStatus = useSelector((state) => state.apptList?.status || "idle");
   const apptLists = useSelector((state) => state.apptList?.list || []);
   const requestStatus = useSelector((state) => state.booking?.status || "idle");
-  const bookingRequests = useSelector((state) => state.booking.requests);
 
   const [open, setOpen] = useState(false);
 
@@ -30,7 +29,7 @@ const Home = () => {
 
   const onCreate = (values) => {
     console.log("Received values of form: ", values);
-    setOpen(false);
+    setOpen(false); 
   };
 
   return (
@@ -38,13 +37,17 @@ const Home = () => {
       <Button
         type="primary"
         className="make-appointment-button"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setOpen(true);
+        }}
       >
         + Make an Appointment
       </Button>
+
+
       <Calender list={apptLists} />
       <ApptList />
-      <AppointmentForm open={open} onCreate={onCreate} onCancel={() => setOpen(false)} />
+      <AppointmentForm open={open} onCreate={onCreate} onClose={() => setOpen(false)} />
     </div>
   );
 };

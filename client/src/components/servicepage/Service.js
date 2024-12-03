@@ -7,6 +7,7 @@ import AddServiceModal from "./AddServiceModal";
 import FilterModal from "./FilterModal";
 import PackageDetailModal from "./PackageDetailModal";
 import AddPackageModal from "./AddPackageModal";
+import { IoSearchOutline } from "react-icons/io5";
 
 const Services = () => {
   const [selectedTab, setSelectedTab] = useState("Services");
@@ -37,7 +38,7 @@ const Services = () => {
     { id: 1, name: "Package Name", category: "Package Category", price: "$60", items: [{ name: "Haircut", qty: 1 }, { name: "Cat snacks", qty: 1 }], tags: ["Dog", "Long Hair"], noLongerOffered: false },
     { id: 2, name: "Package Name", category: "Package Category", price: "$70", items: [{ name: "Grooming", qty: 1 }, { name: "Dog snacks", qty: 1 }], tags: ["Cat", "Short Hair"], noLongerOffered: false },
     { id: 3, name: "Package Name", category: "Package Category", price: "$80", items: [{ name: "Training", qty: 1 }, { name: "Cat food", qty: 1 }], tags: ["Cat", "Long Hair"], noLongerOffered: false },
-    { id: 4, name: "Package Name", category: "Package Category", price: "$100", items: [{ name: "Training", qty: 1 }, { name: "Dog food", qty: 1 }],tags: ["Dog", "Long Hair"], noLongerOffered: false },
+    { id: 4, name: "Package Name", category: "Package Category", price: "$100", items: [{ name: "Training", qty: 1 }, { name: "Dog food", qty: 1 }], tags: ["Dog", "Long Hair"], noLongerOffered: false },
   ]);
 
   const handleTabChange = (tab) => {
@@ -244,7 +245,8 @@ const Services = () => {
             Packages
           </div>
         </div>
-        <div className="search-bar">
+        <div className="search-bar-wrapper">
+          <IoSearchOutline className="search-icon" />
           <input type="text" placeholder="Search" />
         </div>
         <div className="navbar-icons">
@@ -260,7 +262,7 @@ const Services = () => {
             onClick={() => handleServiceClick(service)}
           >
             <div className="service-info">
-              <div className="service-name">{service.name}</div>
+              <div className="service-namea">{service.name}</div>
               <div className="service-type">{service.type}</div>
             </div>
             <div className="service-details">
@@ -276,7 +278,7 @@ const Services = () => {
             onClick={() => handleProductClick(product)}
           >
             <div className="service-info">
-              <div className="service-name">{product.name}</div>
+              <div className="service-namea">{product.name}</div>
               <div className="service-type">{product.type}</div>
             </div>
             <div className="service-details">
@@ -292,7 +294,7 @@ const Services = () => {
             onClick={() => handlePackageClick(pkg)}
           >
             <div className="service-info">
-              <div className="service-name">{pkg.name}</div>
+              <div className="service-namea">{pkg.name}</div>
               <div className="service-type">{pkg.category}</div>
             </div>
             <div className="service-details">

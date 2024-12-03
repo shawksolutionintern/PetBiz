@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-import './css/BusinessLogin.css'
+import './css/BusinessLogin.css';
 
 function BusinessLogin() {
   const [error, setError] = useState(false);
@@ -47,7 +47,7 @@ function BusinessLogin() {
 
         {error && <div className="error-message">The account or password is incorrect!</div>}
 
-        <button type="submit" className="sign-in-button">Sign in</button>
+        <button type="submit" className="sign-in-button-BL">Sign in</button>
 
         <div className="sign-up-container">
           <span className='account'>Didn't have an account?</span>

@@ -21,6 +21,8 @@ import VerificationPage from './components/loginPage/VerificationPage';
 import ResetPassword from './components/loginPage/ResetPassword';
 import CustomerSignup from './components/loginPage/CustomerSignup';
 import Purchase from './components/PurchasePage/Purchase';
+import AppointmentForm from './components/homePage/AppointmentForm';
+
 const ProtectedRoute = ({ children }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn'); 
   return isLoggedIn ? children : <Navigate to="/login" replace />;
@@ -54,6 +56,7 @@ const AppContent = () => {
           <Route path="/next-page" element={<NextStep />} /> 
           <Route path="/forgot-password" element={<ForgotPassword />} /> 
           <Route path="/verification-page" element={<VerificationPage />} /> 
+          <Route path="/AppointmentForm" element={<AppointmentForm />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/customer-signup" element={<CustomerSignup />} />
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />

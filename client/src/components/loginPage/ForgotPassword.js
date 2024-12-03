@@ -19,7 +19,7 @@ const ForgotPassword = () => {
     return (
       <div className="forgot-password-container">
         <FaArrowLeft className="arrow-left" onClick={() => navigate(-1)} />
-        <h1 className="title">Forgot Password?</h1>
+        <h1 className="titleBs">Forgot Password?</h1>
         <p className="instructions">Enter your Email address to reset your password</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

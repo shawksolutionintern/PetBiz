@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import EmployeeExceptionModal from "./EmployeeExceptionModal";
 import "./ServiceDetail.css";
 
 const AddServiceModal = ({ onClose, onSave }) => {
@@ -6,38 +8,44 @@ const AddServiceModal = ({ onClose, onSave }) => {
   const [serviceType, setServiceType] = useState("");
   const [price, setPrice] = useState("");
   const [duration, setDuration] = useState("");
-  const [tags, setTags] = useState(["Dog", "Long Hair"]);
-  const [noLongerOffered, setNoLongerOffered] = useState(false);
+  const [tags, setTags] = useState([]); 
+  const [customization] = useState("Employee Exceptions");
+  const [isEmployeeExceptionModalOpen, setIsEmployeeExceptionModalOpen] =
+    useState(false);
 
   const handleSave = () => {
     const newService = {
-      id: Math.random().toString(36).substr(2, 9),
       name: serviceName,
       type: serviceType,
-      price: price,
-      duration: duration,
-      tags: tags,
-      noLongerOffered: noLongerOffered,
+      price,
+      duration,
+      customization,
+      tags
     };
     onSave(newService);
     onClose();
   };
 
   const handleTagRemove = (tagToRemove) => {
-    setTags(tags.filter(tag => tag !== tagToRemove));
+    setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
-  const handleTagAdd = (newTag) => {
-    setTags([...tags, newTag]);
+  const handleTagAdd = () => {
+    const newTag = prompt("Enter new tag:");
+    if (newTag && !tags.includes(newTag)) {
+      setTags([...tags, newTag]);
+    }
   };
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="close-button" onClick={onClose}>×</button>
-        <h2>Add a new service</h2>
+      <div className="modal-content-sd">
+        <div className="modal-header-sd">
+          <IoIosCloseCircleOutline className="close-icon" onClick={onClose} />
+          <h2 className="sd-title">Add a New Service</h2>
+        </div>
         <form className="service-form">
-          <div className="form-group">
+          <div className="form-group-sd">
             <label>Service Name</label>
             <input
               type="text"
@@ -45,65 +53,80 @@ const AddServiceModal = ({ onClose, onSave }) => {
               onChange={(e) => setServiceName(e.target.value)}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group-sd">
             <label>Service Type</label>
-            <select value={serviceType} onChange={(e) => setServiceType(e.target.value)}>
+            <select
+              value={serviceType}
+              onChange={(e) => setServiceType(e.target.value)}
+            >
+              <option value="" disabled>
+                Select Service Type
+              </option>
               <option value="Grooming">Grooming</option>
               <option value="Training">Training</option>
               <option value="Boarding">Boarding</option>
               <option value="Veterinary">Veterinary</option>
             </select>
           </div>
-          <div className="form-group">
-            <label>Price</label>
-            <input
-              type="text"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
+          <div className="form-row">
+            <div className="form-group-sd">
+              <label>Price</label>
+              <input
+                type="text"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+            <div className="form-group-sd">
+              <label>Duration</label>
+              <input
+                type="text"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+              />
+            </div>
           </div>
-          <div className="form-group">
-            <label>Duration</label>
-            <input
-              type="text"
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-            />
+          <div className="form-group-sd">
+            <label>Service Customization</label>
+            <button
+              type="button"
+              className="customization-box"
+              onClick={() => setIsEmployeeExceptionModalOpen(true)}
+            >
+              {customization}
+            </button>
           </div>
-          <div className="form-group">
+          <div className="form-group-sd">
             <label>Service Tags</label>
             <div className="tags">
-              {tags.map(tag => (
+              {tags.map((tag) => (
                 <span key={tag} className="tag" onClick={() => handleTagRemove(tag)}>
                   {tag} ×
                 </span>
               ))}
-              <span className="add-tag" onClick={() => handleTagAdd("New Tag")}>+</span>
+              <span className="add-tag" onClick={handleTagAdd}>+</span>
             </div>
           </div>
-          <div className="form-group">
-            <label>No Longer Offered</label>
-            <label className="switch">
-              <input
-                type="checkbox"
-                checked={noLongerOffered}
-                onChange={(e) => setNoLongerOffered(e.target.checked)}
-              />
-              <span className="slider round"></span>
-            </label>
-          </div>
-          <div className="form-actions">
-            <button type="button" className="save-button" onClick={handleSave}>
+          <div className="form-actions-as">
+            <button type="button" className="save-button-as" onClick={handleSave}>
               Save
             </button>
           </div>
         </form>
+        {isEmployeeExceptionModalOpen && (
+          <EmployeeExceptionModal
+            employees={["Becky", "Miranda", "Mike", "Matt"]}
+            onClose={() => setIsEmployeeExceptionModalOpen(false)}
+          />
+        )}
       </div>
     </div>
   );
 };
 
 export default AddServiceModal;
+
+
 
 
 

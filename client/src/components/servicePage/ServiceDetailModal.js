@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import EmployeeExceptionModal from "./EmployeeExceptionModal";
 import "./ServiceDetail.css";
 
@@ -18,12 +19,12 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
       ...service,
       name: serviceName,
       type: serviceType,
-      price: price,
-      duration: duration,
+      price,
+      duration,
       id: serviceId,
-      customization: customization,
-      tags: tags,
-      noLongerOffered: noLongerOffered,
+      customization,
+      tags,
+      noLongerOffered,
     };
     onSave(updatedService);
     onClose();
@@ -34,28 +35,22 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
   };
 
   const handleTagRemove = (tagToRemove) => {
-    setTags(tags.filter(tag => tag !== tagToRemove));
+    setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   const handleTagAdd = (newTag) => {
     setTags([...tags, newTag]);
   };
 
-  const handleOpenEmployeeExceptionModal = () => {
-    setIsEmployeeExceptionModalOpen(true);
-  };
-
-  const handleCloseEmployeeExceptionModal = () => {
-    setIsEmployeeExceptionModalOpen(false);
-  };
-
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="close-button" onClick={onClose}>×</button>
-        <h2>Service Details</h2>
+      <div className="modal-content-sd">
+        <div className="modal-header-sd">
+          <IoIosCloseCircleOutline className="close-icon" onClick={onClose} />
+          <h2 className="sd-title">Service Detail</h2>
+        </div>
         <form className="service-form">
-          <div className="form-group">
+          <div className="form-group-sd">
             <label>Service Name</label>
             <input
               type="text"
@@ -63,7 +58,7 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
               onChange={(e) => setServiceName(e.target.value)}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group-sd">
             <label>Service Type</label>
             <select value={serviceType} onChange={(e) => setServiceType(e.target.value)}>
               <option value="Grooming">Grooming</option>
@@ -72,36 +67,38 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
               <option value="Veterinary">Veterinary</option>
             </select>
           </div>
-          <div className="form-group">
-            <label>Price</label>
-            <input
-              type="text"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
+          <div className="form-row">
+            <div className="form-group-sd">
+              <label>Price</label>
+              <input
+                type="text"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+            <div className="form-group-sd">
+              <label>Duration</label>
+              <input
+                type="text"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+              />
+            </div>
+            <div className="form-group-sd">
+              <label>Service ID</label>
+              <input type="text" value={serviceId} readOnly />
+            </div>
           </div>
-          <div className="form-group">
-            <label>Duration</label>
-            <input
-              type="text"
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label>Service ID</label>
-            <input type="text" value={serviceId} readOnly />
-          </div>
-          <div className="form-group">
+          <div className="form-group-sd">
             <label>Service Customization</label>
-            <button type="button" onClick={handleOpenEmployeeExceptionModal}>
+            <button type="button" onClick={() => setIsEmployeeExceptionModalOpen(true)}>
               {customization}
             </button>
           </div>
-          <div className="form-group">
+          <div className="form-group-sd">
             <label>Service Tags</label>
             <div className="tags">
-              {tags.map(tag => (
+              {tags.map((tag) => (
                 <span key={tag} className="tag" onClick={() => handleTagRemove(tag)}>
                   {tag} ×
                 </span>
@@ -109,7 +106,7 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
               <span className="add-tag" onClick={() => handleTagAdd("New Tag")}>+</span>
             </div>
           </div>
-          <div className="form-group">
+          <div className="form-slider">
             <label>No Longer Offered</label>
             <label className="switch">
               <input
@@ -132,7 +129,7 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
         {isEmployeeExceptionModalOpen && (
           <EmployeeExceptionModal
             employees={["Becky", "Miranda", "Mike", "Matt"]}
-            onClose={handleCloseEmployeeExceptionModal}
+            onClose={() => setIsEmployeeExceptionModalOpen(false)}
           />
         )}
       </div>
@@ -141,3 +138,4 @@ const ServiceDetailModal = ({ service, onClose, onSave, onDelete }) => {
 };
 
 export default ServiceDetailModal;
+

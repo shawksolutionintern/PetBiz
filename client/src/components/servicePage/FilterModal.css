@@ -1,61 +1,71 @@
-.filter-modal .ant-modal-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-}
 
-.filter-modal .ant-modal-footer {
-  display: none; /* 隐藏默认底部 */
+.filter-panel {
+  position: absolute;
+  top: 60px; 
+  right: 90px;
+  width: 363px ;
+  height: 532px ;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .filter-group {
   margin-bottom: 20px;
+
 }
 
-.filter-group h3 {
+.filter-title {
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 10px;
-  font-size: 1.2rem;
-  font-weight: 500;
+  margin-top: 22px;
+  font-family: 'Inter';
+  margin-left: 20px;
 }
 
 .filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 30px; 
 }
 
-.filter-buttons .ant-btn {
-  border-radius: 20px;
-  padding: 0 15px;
-  background-color: #f0f0f0;
-  border: none;
-  color: #000;
+.filter-button {
+  width: 130px; 
+  height: 30px; 
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: 16px; 
   cursor: pointer;
+  text-align: center; 
+  line-height: 30px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-left: 20px;
 }
 
-.filter-buttons .ant-btn:hover,
-.filter-buttons .ant-btn-primary {
-  background-color: #1890ff;
-  color: #fff;
-  border: none;
+.filter-button:hover {
+  background-color: #e0e0e0;
 }
 
-.filter-buttons .ant-btn:focus,
-.filter-buttons .ant-btn:active {
-  background-color: #1890ff;
-  color: #fff;
-  border: none;
-}
-
-.filter-modal .ant-btn-primary.ant-btn-background-ghost {
-  background-color: #f0f0f0;
-  border-color: #d9d9d9;
+.filter-button.active {
+  background-color: #d9d9d9;
   color: #000;
 }
 
-.filter-modal .ant-btn-primary.ant-btn-background-ghost:hover,
-.filter-modal .ant-btn-primary.ant-btn-background-ghost:focus,
-.filter-modal .ant-btn-primary.ant-btn-background-ghost:active {
-  background-color: #1890ff;
-  border-color: #1890ff;
-  color: #fff;
+
+.navbar-icons {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.navbar-icons .icon {
+  font-size: 24px;
+  cursor: pointer;
 }

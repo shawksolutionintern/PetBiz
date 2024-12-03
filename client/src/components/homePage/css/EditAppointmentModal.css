@@ -1,0 +1,130 @@
+
+
+.ant-modal-content {
+    width: 100%; /* 自适应视口宽度 */
+    max-width: 1166px; /* 最大宽度 */
+    min-width: 1100px; /* 最小宽度 */
+    height: 735px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 0 auto; /* 确保内容在容器内水平居中 */
+    position: relative;
+  }
+  
+
+
+  
+  /* 禁止背景页面滚动 */
+  body {
+    overflow: hidden; /* 禁用滚动 */
+  }
+  
+/* Modal Title */
+.modal-title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: "Rubik";
+    color: #969696;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Inter";
+    margin-bottom: 10px;
+  }
+  
+  /* Form Labels */
+  .form-label {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Inter";
+  }
+  
+  /* Input and Select fields */
+  .form-input {
+    background-color: #D9D9D9;
+    border-radius: 4px;
+    padding: 8px;
+    height: 30px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Inter";
+  }
+  
+  /* Add Service and Add Product */
+  .add-service,
+  .add-product {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Inter";
+    margin-bottom: 8px;
+  }
+  
+  /* Total Price */
+  .total-price {
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Inter";
+  }
+  
+  /* Divider */
+  .divider-vertical {
+    height: 100%;
+    background-color: #000000;
+  }
+  
+  .divider-horizontal {
+    background-color: #000000;
+    margin: 16px 0;
+  }
+  
+  /* Submit Button */
+  .submit-button {
+    width: 225px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    color: #000000;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: "Inter";
+    border: none;
+  }
+  
+
+.ant-select-selector {
+    background-color: #d9d9d9 !important; 
+    border: 1px solid #D9D9D9 !important;
+    border-radius: 4px; 
+    box-shadow: none !important; 
+    transition: none !important; 
+  }
+  
+  /* 下拉框选项的背景颜色 */
+  .ant-select-dropdown {
+    background-color: #D9D9D9 !important; 
+    border: 1px solid #D9D9D9!important; 
+    box-shadow: none !important; 
+  }
+  
+
+  .ant-select-item-option-active,
+  .ant-select-item-option-selected {
+    background-color: #f5f5f5 !important; 
+    color: #000000 !important;
+  }
+  
+  .ant-select:hover .ant-select-selector,
+  .ant-select-focused .ant-select-selector {
+    background-color: #D9D9D9!important;
+    border: 1px solid #D9D9D9 !important;
+  }
+  

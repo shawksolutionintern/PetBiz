@@ -31,6 +31,7 @@ const Calender = ({list}) => {
           center: '',
           right: ''
         }}
+        height="800px"
       />
     </div>
   );

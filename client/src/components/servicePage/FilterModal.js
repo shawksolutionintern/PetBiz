@@ -1,37 +1,35 @@
-import React from 'react';
-import { Modal, Button } from 'antd';
-import './FilterModal.css';
+import React from "react";
+import "./FilterModal.css";
 
-const FilterModal = ({ visible, filters, selectedFilters, onClose, onFilterChange }) => {
+const FilterModal = ({ visible, filters, selectedFilters, onFilterChange }) => {
   if (!filters) return null;
 
   return (
-    <Modal
-      title="Filter Options"
-      visible={visible}
-      onCancel={onClose}
-      footer={null}
-      className="filter-modal"
-    >
+    <div className={`filter-panel ${visible ? "visible" : "hidden"}`}>
       {filters.map((filterGroup, index) => (
         <div key={index} className="filter-group">
-          <h3>{filterGroup.title}</h3>
+          <h3 className="filter-title">{filterGroup.title}</h3>
           <div className="filter-buttons">
             {filterGroup.options.map((option) => (
-              <Button
+              <button
                 key={option}
-                type={selectedFilters[filterGroup.title]?.includes(option) ? 'primary' : 'default'}
+                className={`filter-button ${
+                  selectedFilters[filterGroup.title]?.includes(option)
+                    ? "active"
+                    : ""
+                }`}
                 onClick={() => onFilterChange(filterGroup.title, option)}
               >
                 {option}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
       ))}
-    </Modal>
+    </div>
   );
 };
 
 export default FilterModal;
+
 
