@@ -1,34 +1,44 @@
 import React, { useState } from "react";
-import { Modal, Form, Input, Button, Select, Switch } from "antd";
 import ServiceListModal from "./ServiceListModal";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import "./PackageDetailModal.css";
 
-const { Option } = Select;
-
 const PackageDetailModal = ({ pkg, onClose, onSave, onDelete }) => {
-  const [form] = Form.useForm();
   const [tags, setTags] = useState(pkg.tags || []);
   const [items, setItems] = useState(Array.isArray(pkg.items) ? pkg.items : []);
   const [isServiceListModalOpen, setIsServiceListModalOpen] = useState(false);
   const [selectedServices, setSelectedServices] = useState(items.map(item => item.id));
+  const [formValues, setFormValues] = useState({
+    name: pkg.name || "",
+    category: pkg.category || "",
+    price: pkg.price || "",
+    noLongerOffered: pkg.noLongerOffered || false,
+    newTag: ""
+  });
 
   const handleTagRemove = (tagToRemove) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   const handleTagAdd = () => {
-    const newTag = form.getFieldValue("newTag");
+    const newTag = formValues.newTag;
     if (newTag && !tags.includes(newTag)) {
       setTags([...tags, newTag]);
     }
-    form.resetFields(["newTag"]);
+    setFormValues({ ...formValues, newTag: "" });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
   const handleSave = () => {
-    form.validateFields().then((values) => {
-      onSave({ ...pkg, ...values, tags, items });
-      onClose();
-    });
+    onSave({ ...pkg, ...formValues, tags, items });
+    onClose();
   };
 
   const handleDelete = () => {
@@ -44,79 +54,103 @@ const PackageDetailModal = ({ pkg, onClose, onSave, onDelete }) => {
   };
 
   return (
-    <Modal
-      title="Package Details"
-      visible={true}
-      onCancel={onClose}
-      footer={null}
-      className="package-detail-modal"
-    >
-      <Form
-        form={form}
-        layout="vertical"
-        initialValues={{
-          name: pkg.name,
-          category: pkg.category,
-          price: pkg.price,
-          tags: pkg.tags,
-          noLongerOffered: pkg.noLongerOffered,
-        }}
-      >
-        <Form.Item name="name" label="Package Name">
-          <Input placeholder="Package Name" />
-        </Form.Item>
-        <Form.Item name="category" label="Package Category">
-          <Select placeholder="Select a category">
-            <Option value="Category A">Category A</Option>
-            <Option value="Category B">Category B</Option>
-          </Select>
-        </Form.Item>
-        <Form.Item label={`Package Items (${items.length} items)`}>
-          <div className="items-list">
-            {items.map((item, index) => (
-              <div key={index} className="item">
-                <span>{item.name}</span>
-                <span className="item-qty">Qty {item.qty}</span>
-              </div>
-            ))}
-            <Button type="dashed" className="add-item-btn" onClick={() => setIsServiceListModalOpen(true)}>
-              + Add Service
-            </Button>
-            <Button type="dashed" className="add-item-btn">
-              + Add Product
-            </Button>
-          </div>
-        </Form.Item>
-        <Form.Item name="price" label="Price">
-          <Input placeholder="Price" />
-        </Form.Item>
-        <Form.Item label="Service Tags">
-          <div className="tags">
-            {tags.map((tag) => (
-              <span key={tag} className="tag" onClick={() => handleTagRemove(tag)}>
-                {tag}
-              </span>
-            ))}
-            <Form.Item name="newTag" noStyle>
-              <Input placeholder="Add tag" className="tag-input" />
-            </Form.Item>
-            <Button type="dashed" onClick={handleTagAdd}>
-              +
-            </Button>
-          </div>
-        </Form.Item>
-        <Form.Item name="noLongerOffered" label="No Longer Offered" valuePropName="checked">
-          <Switch />
-        </Form.Item>
-        <div className="modal-footer">
-          <Button key="delete" type="danger" onClick={handleDelete}>
-            Delete
-          </Button>
-          <Button key="submit" type="primary" onClick={handleSave}>
-            Save
-          </Button>
+    <div className="modal-overlay">
+      <div className="modal-contain-pkg">
+        <div className="modal-header-sd">
+        <IoIosCloseCircleOutline className="close-icon" onClick={onClose} />
+          <h2>Package Details</h2>
         </div>
-      </Form>
+        <div className="modal-body">
+          <div className="form-group-pkg">
+            <label>Package Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formValues.name}
+              onChange={handleInputChange}
+              placeholder="Package Name"
+            />
+          </div>
+          <div className="form-group-pkg">
+            <label>Package Category</label>
+            <select
+              name="category"
+              value={formValues.category}
+              onChange={handleInputChange}
+            >
+              <option value="">Select a category</option>
+              <option value="Category A">Category A</option>
+              <option value="Category B">Category B</option>
+            </select>
+          </div>
+          <div className="form-group-pkg">
+            <label>Package Items</label>
+            <div className="items-list">
+              <div className="item-box-pkg">
+                <div className="item1" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter', marginLeft: '12px' }}>Haircut</span>
+                  <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter' }}>Qty 1 &gt;</span>
+                </div>
+                <hr style={{ width: '95%', margin: '0 auto', color: '#969696' }} />
+                <div className="item1" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter', marginLeft: '12px' }}>Cat Snacks</span>
+                  <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter' }}>Qty 1 &gt;</span>
+                </div>
+                <hr style={{ width: '95%', margin: '0 auto', color: '#969696' }} />
+                <div className="item-pkg">
+                  <span>+ Add Service</span>
+                </div>
+                <div className="item-pkg">
+                  <span>+ Add Product</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="form-group-pkg" style={{ width: '30%' }}>
+            <label>Price</label>
+            <input
+              type="text"
+              name="price"
+              value={formValues.price}
+              onChange={handleInputChange}
+              placeholder="Price"
+            />
+          </div>
+          <div className="form-group-pkg">
+            <label>Service Tags</label>
+            <div className="tags">
+              {tags.map((tag) => (
+                <span key={tag} className="tag" onClick={() => handleTagRemove(tag)}>
+                  {tag} &times;
+                </span>
+              ))}
+              <button className="add-tag-pd" onClick={handleTagAdd}>
+                +
+              </button>
+            </div>
+          </div>
+          <div className="form-slider-pd">
+            <label>No Longer Offered</label>
+            <label className="switch-pd">
+              <input
+                type="checkbox"
+                checked={formValues.noLongerOffered}
+                onChange={(e) => handleInputChange(e)}
+                name="noLongerOffered"
+              />
+              <span className="slider-round-pd"></span>
+            </label>
+          </div>
+        </div>
+        <div className="modal-footer-pkg">
+          <button className="delete-button-pkg" onClick={handleDelete}>
+            Delete
+          </button>
+          <button className="save-button-pkg" onClick={handleSave}>
+            Save
+          </button>
+        </div>
+      </div>
       <ServiceListModal
         visible={isServiceListModalOpen}
         services={[
@@ -128,11 +162,12 @@ const PackageDetailModal = ({ pkg, onClose, onSave, onDelete }) => {
         onClose={() => setIsServiceListModalOpen(false)}
         onSelectService={handleSelectService}
       />
-    </Modal>
+    </div>
   );
 };
 
 export default PackageDetailModal;
+
 
 
 

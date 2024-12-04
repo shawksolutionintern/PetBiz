@@ -94,7 +94,7 @@
   }
   
   .divider {
-    border-top: 1px dashed #ccc;
+    border-top: 1px dashed #000000;
     margin-top: 12px;
     margin-bottom: 12px;
   }

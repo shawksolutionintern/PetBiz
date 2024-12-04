@@ -10,11 +10,9 @@ const EditAppointmentModal = ({ request, onClose }) => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    // 禁用背景滚动
     document.body.style.overflow = "hidden";
 
     return () => {
-      // 恢复背景滚动
       document.body.style.overflow = "auto";
     };
   }, []);
@@ -58,7 +56,7 @@ const EditAppointmentModal = ({ request, onClose }) => {
         </div>
       }
       footer={null}
-      width={1260} 
+      width="80%"
       closable={false}
       centered={true}
       className="custom-modal"
@@ -250,10 +248,10 @@ const EditAppointmentModal = ({ request, onClose }) => {
                 width: "225px",
                 height: "50px",
                 borderRadius: "8px",
-                backgroundColor: "#D9D9D9", // 可根据需要修改颜色
-                color: "#000000", // 按钮文字颜色
-                fontWeight: "600", // 可选：设置文字加粗
-                fontSize: "16px", // 可选：调整文字大小
+                backgroundColor: "#D9D9D9", 
+                color: "#000000", 
+                fontWeight: "600", 
+                fontSize: "16px", 
               }}
               onClick={() => form.submit()}
             >

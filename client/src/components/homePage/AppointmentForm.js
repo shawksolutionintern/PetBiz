@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Modal, Form, Input, DatePicker, TimePicker, Select, Row, Col, Button, Divider} from "antd";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import './css/EditAppointmentModal.css';
 
 const { Option } = Select;
 
@@ -36,9 +37,11 @@ const AppointmentForm = ({ open, onClose }) => {
           <span style={{color:'#525050'}}>  Make an Appointment</span>
         </div>
       }
-      width={900} 
       footer={null}
+      width="80%"
       closable={false}
+      centered={true}
+      className="custom-modal"
     >
       <Form
         form={form}
@@ -232,10 +235,10 @@ const AppointmentForm = ({ open, onClose }) => {
                 width: "225px",
                 height: "50px",
                 borderRadius: "8px",
-                backgroundColor: "#D9D9D9", // 可根据需要修改颜色
-                color: "#000000", // 按钮文字颜色
-                fontWeight: "600", // 可选：设置文字加粗
-                fontSize: "16px", // 可选：调整文字大小
+                backgroundColor: "#D9D9D9", 
+                color: "#000000", 
+                fontWeight: "600", 
+                fontSize: "16px",
               }}
               onClick={() => form.submit()}
             >
