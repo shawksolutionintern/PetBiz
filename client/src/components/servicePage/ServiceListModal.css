@@ -1,17 +1,132 @@
-.service-list-modal .ant-modal-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-  }
-  
-  .service-list-modal .ant-input-search {
-    margin-bottom: 20px;
-  }
-  
-  .service-list-modal .ant-list-item-meta-title {
-    font-size: 1.2rem;
-  }
-  
-  .service-list-modal .ant-list-item-meta-description {
-    color: #999;
-  }
-  
+/* Modal overlay styles */
+.service-list-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.service-list-modal {
+  background: #fff;
+  height: 85%;
+  width: 600px;
+  max-width: 90%;
+  border-radius: 32px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  margin-top: 10px;
+}
+
+/* Search bar styles */
+.search-bar-sm {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  position: relative;
+  border-radius: 32px;
+  background-color: #f2f2f2;
+}
+
+/* Search input field styles */
+.search-bar-sm input[type="text"] {
+  width: 100%;
+  padding: 12px 40px; /* Padding to make space for the search icon */
+  border: none;
+  border-radius: 32px;
+  background-color: transparent;
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Search icon styles */
+.search-icon-sm {
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  color: #8d8d8d;
+}
+
+/* Menu icon styles */
+.menu-icon {
+  font-size: 24px;
+  color: #000000;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+/* Service list styles */
+.items-list-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-box-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #eaeaea;
+  margin-left: 12px;
+  width: 92%;
+  margin-bottom: 10px;
+}
+
+.item-info-custom {
+  flex: 1;
+}
+
+.item-title-custom {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: #000000;
+  font-size: 16px;
+  margin-left: 12px;
+  font-family: 'Inter';
+  font-weight: 500;
+}
+
+.item-description-custom {
+  margin-left: 12px;
+  color: #000000;
+  font-size: 16px;
+}
+
+.select-button-custom {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.selected-icon-custom {
+  color: #000000;
+}
+
+.unselected-icon-custom {
+  color: #000000;
+}
+
+.close-button-custom {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}

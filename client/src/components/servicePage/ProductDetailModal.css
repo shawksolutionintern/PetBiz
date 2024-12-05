@@ -13,29 +13,29 @@
 
 .modal-contain-pd {
   background-color: #fff;
-  border-radius: 8px;
   width: 80%;
+  height: 90%;
   max-width: 600px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 32px;
 }
 
 .modal-body {
-  max-height: 70vh;
-  overflow-y: auto;
-  margin-top: 10px;
+  height: auto;
+  overflow: visible;
 }
 
 .form-group-pd {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .form-group-pd label ,
 .form-slider-pd label {
   display: block;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   font-size: 16px;
   color: #151313;
   font-family: 'Inter';
@@ -93,7 +93,7 @@
 .modal-footer {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
   gap:38px;
 }
 
@@ -124,8 +124,9 @@
   display: flex;
   justify-content: space-between;
   gap: 300px;
-  align-items: center; /* 确保垂直方向对齐 */
-  padding: 10px; /* 可根据需要调整间距 */
+  align-items: center;
+  padding: 10px; 
+  margin-bottom: 1px;
 }
 
 .switch-pd {

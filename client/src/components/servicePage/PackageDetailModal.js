@@ -98,7 +98,7 @@ const PackageDetailModal = ({ pkg, onClose, onSave, onDelete }) => {
                 </div>
                 <hr style={{ width: '95%', margin: '0 auto', color: '#969696' }} />
                 <div className="item-pkg">
-                  <span>+ Add Service</span>
+                  <span onClick={() => setIsServiceListModalOpen(true)}>+ Add Service</span>
                 </div>
                 <div className="item-pkg">
                   <span>+ Add Product</span>
@@ -157,6 +157,7 @@ const PackageDetailModal = ({ pkg, onClose, onSave, onDelete }) => {
           { id: 1, name: "Grooming", duration: "30 minutes", price: "$30" },
           { id: 2, name: "Training", duration: "45 minutes", price: "$40" },
           { id: 3, name: "Boarding", duration: "24 hours", price: "$100" },
+          { id: 4, name: "Walking", duration: "30 minutes", price: "$15" },
         ]}
         selectedServices={selectedServices}
         onClose={() => setIsServiceListModalOpen(false)}

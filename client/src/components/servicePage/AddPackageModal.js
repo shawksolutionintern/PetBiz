@@ -4,7 +4,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import "./PackageDetailModal.css";
 
 const AddPackageModal = ({ onClose, onSave, onDelete }) => {
-  const [tags, setTags] = useState(['a']);
+  const [tags, setTags] = useState(['Dog X','Long hair X']);
   const [items, setItems] = useState([]);
   const [isServiceListModalOpen, setIsServiceListModalOpen] = useState(false);
   const [selectedServices, setSelectedServices] = useState([]);
@@ -87,6 +87,16 @@ const AddPackageModal = ({ onClose, onSave, onDelete }) => {
             <label>Package Items</label>
             <div className="items-list">
               <div className="item-box-pkg">
+              <div className="item1" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter', marginLeft: '12px' }}>Haircut</span>
+                  <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter' }}>Qty 1 &gt;</span>
+                </div>
+                <hr style={{ width: '95%', margin: '0 auto', color: '#969696' }} />
+                <div className="item1" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter', marginLeft: '12px' }}>Cat Snacks</span>
+                  <span style={{ color: '#969696', fontSize: '16px',fontFamily: 'Inter' }}>Qty 1 &gt;</span>
+                </div>
+                <hr style={{ width: '95%', margin: '0 auto', color: '#969696' }} />
                 <div className="item-pkg">
                   <span>+ Add Service</span>
                 </div>
@@ -114,7 +124,7 @@ const AddPackageModal = ({ onClose, onSave, onDelete }) => {
                   {tag} &times;
                 </span>
               ))}
-              <button className="add-tag-pd" onClick={handleTagAdd}>
+              <button className="add-tag-pd" onClick={handleTagAdd} style={{ marginLeft: '12px' }}>
                 +
               </button>
             </div>
@@ -132,11 +142,8 @@ const AddPackageModal = ({ onClose, onSave, onDelete }) => {
             </label>
           </div>
         </div>
-        <div className="modal-footer-pkg">
-          <button className="delete-button-pkg" onClick={handleDelete}>
-            Delete
-          </button>
-          <button className="save-button-pkg" onClick={handleSave}>
+        <div className="modal-footer">
+          <button className="save-button-ap" onClick={handleSave}>
             Save
           </button>
         </div>

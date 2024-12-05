@@ -1,19 +1,17 @@
 .modal-content-sd {
-  width: 45%;
+  width: 40%;
   height: 90%;
   background: #fff;
-  border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 32px;
 }
 
-
-/* 确保表单头部靠左对齐 */
 .modal-header-sd {
   display: flex;
   align-items: center;
   gap: 20px;
-  justify-content: flex-start; /* 左对齐 */
+  justify-content: flex-start; 
 }
 
 .close-icon{
@@ -174,7 +172,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center; 
   justify-content: space-between; 
-  gap:410px;
+  gap:350px;
   margin-bottom: 40px;
 }
 

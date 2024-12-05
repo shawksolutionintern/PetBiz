@@ -46,10 +46,8 @@ const AddProductModal = ({ onClose, onSave }) => {
   };
 
   useEffect(() => {
-    // 禁用 body 滚动
     document.body.style.overflow = 'hidden';
     return () => {
-      // 恢复 body 滚动
       document.body.style.overflow = 'auto';
     };
   }, []);

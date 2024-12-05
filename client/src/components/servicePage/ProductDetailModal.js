@@ -4,7 +4,7 @@ import { FaBarcode } from "react-icons/fa";
 import "./ProductDetailModal.css";
 
 const ProductDetailModal = ({ product, onClose, onSave, onDelete }) => {
-  const [tags, setTags] = useState(product.tags);
+  const [tags, setTags] = useState(product.tags || []);
   const [formValues, setFormValues] = useState({
     name: "",
     type: "",
