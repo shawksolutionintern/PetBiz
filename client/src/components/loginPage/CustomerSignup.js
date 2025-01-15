@@ -29,7 +29,7 @@ const CustomerSignup = () => {
     <div className="customer-signup">
       <FaArrowLeft className="arrow-left" onClick={() => window.history.back()} />
       <h1 className="title">Create Account</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username" className="label">Username</label>
           <input

@@ -99,8 +99,8 @@
 
 .modal-contain-pd .delete-button,
 .modal-contain-pd .save-button{
-  width: 43%;
-  height:32px;
+  width: 50%;
+  height:24px;
   padding: 10px 0;
   border: none;
   border-radius: 8px;
@@ -194,7 +194,7 @@ input:checked + .slider-round:before {
 
 .save-button-ap {
   width: 50%;
-  height: 32px;
+  height: 24px;
   padding: 10px 0;
   border: none;
   border-radius: 8px;
@@ -202,10 +202,10 @@ input:checked + .slider-round:before {
   background-color: #d9d9d9;
   color: #000;
   font-size: 20px;
-  text-align: center; /* Center text inside the button */
-  display: flex; /* Ensures internal content can align */
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
+  text-align: center; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 }
 
 .save-button-ap:hover {

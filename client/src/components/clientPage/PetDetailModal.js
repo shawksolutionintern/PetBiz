@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Modal, Form, Input, Button, Row, Col, Typography, Switch, message } from 'antd';
-import { RightOutlined } from '@ant-design/icons';
+import { Modal, Form, Input, Button, Row, Col, Typography, Switch } from 'antd';
+import { RightOutlined, PlusOutlined} from '@ant-design/icons';
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import './PetDetailModal.css';
-import PetVisitHistoryModal from './PetVisitHistoryModal';
+import VisitHistoryModal from './VisitHistoryModal';
 import VaccinationRecordModal from './VaccinationRecordModal';
 
 
@@ -12,7 +13,8 @@ const PetDetailModal = ({ pet, onClose, onSave, onDelete }) => {
 
   const visitHistory = pet.visitHistory || [
     { date: '03/01/2023', purpose: 'Grooming', appointmentTime: '1 PM', duration: '30 min', employee: 'Miranda', price: '$60' },
-    { date: '04/01/2023', purpose: 'Training', appointmentTime: '2 PM', duration: '45 min', employee: 'John', price: '$40' }
+    { date: '04/01/2023', purpose: 'Training', appointmentTime: '2 PM', duration: '45 min', employee: 'John', price: '$40' },
+    { date: '05/01/2023', purpose: 'Boarding', appointmentTime: '4 PM', duration: '10 Hours', employee: 'Miranda', price: '$160' }
   ];
 
   const vaccinationRecord = pet.vaccinationRecord || [
@@ -38,85 +40,131 @@ const PetDetailModal = ({ pet, onClose, onSave, onDelete }) => {
   return (
     <>
       <Modal
-        title="Pet Details"
+        title={
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: "24px",
+              fontWeight: "500",
+              fontFamily: "Rubik",
+            }}
+          >
+            <IoIosCloseCircleOutline
+              size={24}
+              style={{ color: "#969696", marginRight: 8, cursor: "pointer" }}
+              onClick={onClose}
+            />
+            <span style={{color:'#525050'}}>Pet Details</span>
+          </div>
+        }
         visible={true}
-        onCancel={onClose}
-        footer={[
-          <Button key="delete" danger onClick={handleDelete}>
-            Delete
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleSave}>
-            Save
-          </Button>,
-        ]}
-        width="900px"
+        closable={false}
+        footer={null}
+        centered
+        className="client-detail-modal"
+        destroyOnClose={true}
+        maskTransitionName=""
+        transitionName=""
       >
         <Row gutter={16}>
           <Col span={8}>
-            <img src={pet.avatarUrl} alt="Pet Avatar" className="pet-avatar" />
-            <div className="pet-stats">
-              <Typography.Text className="custom-link" onClick={() => handleItemClick('Visit History')}>
-                Visit History <RightOutlined />
-              </Typography.Text><br />
-              <Typography.Text className="custom-link" onClick={() => handleItemClick('Vaccination Record')}>
-                Vaccination Record <RightOutlined />
-              </Typography.Text>
+            <img src={pet.avatarUrl} alt="Pet Avatar" className="client-avatars" />
+            <div className="client-stats">
+              <div className="custom-link-cd" onClick={() => handleItemClick('Visit History')}>
+                Visit History 
+                <RightOutlined />
+              </div>
+              <div className="custom-link-cd" onClick={() => handleItemClick('Vaccination Record')}>
+                Vaccination Record 
+                <RightOutlined />
+              </div>
             </div>
           </Col>
-          <Col span={16}>
+           {/* Right Section */}
+           <Col span={16} className="client-right-section">
             <Form form={form} layout="vertical" initialValues={pet}>
-              <Row gutter={16}>
-                <Col span={12}>
-                  <Form.Item name="owner" label="Owner Name" rules={[{ required: true, message: 'Please enter owner name' }]}>
-                    <Input />
+              {/* 第一行：Owner Name 和 Pet Name */}
+              <div className="form-row">
+                <div className="form-item">
+                  <Form.Item
+                    name="owner"
+                    label="Owner Name"
+                    rules={[{ required: true, message: 'Please enter owner name' }]}
+                  >
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
-                  <Form.Item name="name" label="Pet Name" rules={[{ required: true, message: 'Please enter pet name' }]}>
-                    <Input />
+                </div>
+                <div className="form-item">
+                  <Form.Item
+                    name="name"
+                    label="Pet Name"
+                    rules={[{ required: true, message: 'Please enter pet name' }]}
+                  >
+                    <Input className="client-input"/>
                   </Form.Item>
-                </Col>
-              </Row>
-              <Row gutter={16}>
-                <Col span={12}>
+                </div>
+              </div>
+
+              {/* 第二行：Pet Weight 和 Pet Gender */}
+              <div className="form-row">
+                <div className="form-item">
                   <Form.Item name="weight" label="Pet Weight">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
+                </div>
+                <div className="form-item">
                   <Form.Item name="gender" label="Pet Gender">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-              </Row>
-              <Row gutter={16}>
-                <Col span={12}>
+                </div>
+              </div>
+
+              {/* 第三行：Pet's Date of Birth 和 Pet Breed */}
+              <div className="form-row">
+                <div className="form-item">
                   <Form.Item name="dob" label="Pet's Date of Birth">
-                    <Input type="date" />
+                    <Input className="client-input" type="date" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
+                </div>
+                <div className="form-item">
                   <Form.Item name="breed" label="Pet Breed">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-              </Row>
-              <Form.Item name="notes" label="Notes">
-                <Input.TextArea />
+                </div>
+              </div>
+
+              {/* Notes */}
+              <Form.Item name="notes" label="Notes" className="full-width-item">
+                <Input.TextArea className="client-textarea" rows={2} />
               </Form.Item>
-              <Form.Item name="active" label="No Longer Offered" valuePropName="checked">
-                <Switch />
+
+              {/* No Longer Offered */}
+              <Form.Item className="no-longer-offered">
+                <div className="no-longer-row">
+                  <label>No Longer Offered</label>
+                  <Switch />
+                </div>
               </Form.Item>
+
+              {/* Save and Delete Buttons */}
+              <div className="form-buttons-cd ">
+                <Button type="primary" onClick={handleSave} className="save-button-cid">Save</Button>
+                <Button type="danger" onClick={handleDelete} className="delete-button-cid">Delete</Button>
+              </div>
             </Form>
           </Col>
         </Row>
       </Modal>
 
-      <PetVisitHistoryModal
+      {/* Visit History Modal */}
+      <VisitHistoryModal
         visible={visibleComponent === 'Visit History'}
         onClose={() => setVisibleComponent('')}
         data={visitHistory}
       />
+
+      {/* Vaccination Record Modal */}
       <VaccinationRecordModal
         visible={visibleComponent === 'Vaccination Record'}
         onClose={() => setVisibleComponent('')}
@@ -125,6 +173,7 @@ const PetDetailModal = ({ pet, onClose, onSave, onDelete }) => {
     </>
   );
 };
+
 
 export default PetDetailModal;
 

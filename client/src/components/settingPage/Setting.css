@@ -41,19 +41,19 @@
     margin-bottom: 20px;
     border-radius: 0px;
     background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   }
   
   .setting-box-title {
     margin-left: 10px;
-    font-size: 19px;
-    color: #343131;
-    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+    font-weight: 400;
+    font-family: Inter;
   }
   
   .setting-dropdown-icon {
-    font-size: 18px;
-    color: #333;
+    font-size: 20px;
+    color: #000000;
   }
   
   .ant-row-middle {

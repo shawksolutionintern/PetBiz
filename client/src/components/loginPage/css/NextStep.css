@@ -1,12 +1,11 @@
 .nextstep-container {
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
   }
   
   .arrow-left {
@@ -26,23 +25,28 @@
     line-height: 33.89px;
     text-align: center;
     color: #000000;
-    margin-top: 8%;
+    margin-top: 20px;
+    width: 516px;
+    height: 27px;
   }
-  
-  form {
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 50px;
   }
   
-  .form-group {
+  .nextstep-container .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
     width: 100%;
     max-width: 624px;
-    margin-bottom: 20px;
+    align-items: flex-start !important;
   }
   
-  .label {
+  .nextstep-container .label {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -53,7 +57,7 @@
     display: block;
   }
   
-  .input {
+  .nextstep-container .input {
     width: 100%;
     height: 56px;
     border-radius: 10px;
@@ -65,12 +69,15 @@
     padding-left: 10px;
   }
   
-  .password-input-container {
+  .nextstep-container .password-input-container {
     position: relative;
     width: 100%;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
   }
   
-  .toggle-password {
+  .nextstep-container .toggle-password {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -80,36 +87,36 @@
     color: #525050;
   }
   
-  .password-criteria {
+  .nextstep-container .password-criteria {
     width: 100%;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.36px;
-    color: #000000;
-    margin-top: 10px;
+    color: #969696;
+    margin-top: 5px;
     text-align: left;
   }
   
-  .policy {
+  .nextstep-container .policy {
     width: 100%;
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 0px;
   }
   
-  .checkbox {
+  .nextstep-container .checkbox {
     width: 15px;
     height: 15px;
     margin-right: 10px;
   }
   
-  .underline {
+  .nextstep-container .underline {
     text-decoration: underline;
     cursor: pointer;
   }
 
-  .toggle-password {
+  .nextstep-container .toggle-password {
     position: absolute;
     right: 10px;
     top: 40%;
@@ -120,7 +127,7 @@
   }
   
   
-  .sign-in-button {
+  .nextstep-container .sign-in-button {
     width: 279px;
     height: 56px;
     border-radius: 40px;

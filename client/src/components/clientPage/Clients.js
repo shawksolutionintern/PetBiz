@@ -4,6 +4,8 @@ import ClientDetailModal from "./ClientDetailModal";
 import AddClientModal from "./AddClientModal";
 import PetDetailModal from "./PetDetailModal"; 
 import AddPetModal from "./AddPetModal"; 
+import { IoSearchOutline } from "react-icons/io5";
+import { CiCirclePlus } from "react-icons/ci";
 
 const Clients = () => {
   const [selectedTab, setSelectedTab] = useState("Clients");
@@ -17,8 +19,8 @@ const Clients = () => {
     // clients data
     {
       id: 1,
-      name: "Client Name 1",
-      loyaltyId: "Loyalty ID 1",
+      name: "Client Name",
+      loyaltyId: "Loyalty ID Number",
       tel: "Tel 1",
       email: "Email 1",
       avatarUrl: "/avatars/avatar1.jpg",
@@ -39,11 +41,6 @@ const Clients = () => {
         { date: "2022-02-18", purpose: "In-store", item: "Product C", amount: 59.50 },
         { date: "2022-03-22", purpose: "Online", item: "Product B", amount: 59.50 },
         { date: "2022-09-15", purpose: "Online", item: "Product D", amount: 59.50 },
-        { date: "2023-03-09", purpose: "Online", item: "Product E", amount: 59.50 },
-        { date: "2023-09-21", purpose: "In-store", item: "Product B", amount: 59.50 },
-        { date: "2023-11-28", purpose: "In-store", item: "Product A", amount: 59.50 },
-        { date: "2023-12-03", purpose: "Online", item: "Product B", amount: 59.50 },
-        { date: "2024-03-02", purpose: "In-store", item: "Product B", amount: 59.50 },
       ],
       upcomingAppointments: [
         { date: "2024-07-20", purpose: "Yearly Checkup" },
@@ -53,8 +50,8 @@ const Clients = () => {
     },
     {
       id: 2,
-      name: "Client Name 2",
-      loyaltyId: "Loyalty ID 2",
+      name: "Client Name",
+      loyaltyId: "Loyalty ID Number",
       tel: "Tel 2",
       email: "Email 2",
       avatarUrl: "/avatars/avatar2.jpg",
@@ -76,8 +73,8 @@ const Clients = () => {
     },
     {
       id: 3,
-      name: "Client Name 3",
-      loyaltyId: "Loyalty ID 3",
+      name: "Client Name",
+      loyaltyId: "Loyalty ID Number",
       tel: "Tel 3",
       email: "Email 3",
       avatarUrl: "/avatars/avatar3.jpg",
@@ -99,8 +96,8 @@ const Clients = () => {
     },
     {
       id: 4,
-      name: "Client Name 4",
-      loyaltyId: "Loyalty ID 4",
+      name: "Client Name",
+      loyaltyId: "Loyalty ID Number",
       tel: "Tel 4",
       email: "Email 4",
       avatarUrl: "/avatars/avatar4.jpg",
@@ -134,7 +131,7 @@ const Clients = () => {
       type: "Dog",
       breed: "Golden Retriever",
       age: 3,
-      owner: "Client Name 1",
+      owner: "Client Name ",
       avatarUrl: "/pets/dog.jpg",
       weight: "30 lbs",
       gender: "Female",
@@ -144,6 +141,9 @@ const Clients = () => {
       visitHistory: [
         { date: '2023-01-05', purpose: 'Grooming', appointmentTime: '10 AM', duration: '60 min', employee: 'Emily', price: '$50' },
         { date: '2023-03-10', purpose: 'Vaccination', appointmentTime: '11 AM', duration: '20 min', employee: 'Dr. Smith', price: '$30' },
+        { date: '2023-05-01', purpose: 'Grooming', appointmentTime: '1 PM', duration: '30 min', employee: 'Miranda', price: '$60' },
+        { date: '2023-06-01', purpose: 'Training', appointmentTime: '2 PM', duration: '45 min', employee: 'John', price: '$40' },
+        
       ],
       vaccinationRecord: [
         { date: '2023-01-05', vaccine: 'Rabies', vet: 'Dr. Smith' },
@@ -156,7 +156,7 @@ const Clients = () => {
       type: "Cat",
       breed: "Siamese",
       age: 5,
-      owner: "Client Name 2",
+      owner: "Client Name ",
       avatarUrl: "/pets/cat.jpg",
       weight: "12 lbs",
       gender: "Male",
@@ -178,7 +178,7 @@ const Clients = () => {
       type: "Dog",
       breed: "Bulldog",
       age: 4,
-      owner: "Client Name 3",
+      owner: "Client Name ",
       avatarUrl: "/pets/dog.jpg",
       weight: "40 lbs",
       gender: "Male",
@@ -200,7 +200,7 @@ const Clients = () => {
       type: "Dog",
       breed: "Poodle",
       age: 2,
-      owner: "Client Name 4",
+      owner: "Client Name",
       avatarUrl: "/pets/dog.jpg",
       weight: "15 lbs",
       gender: "Female",
@@ -301,11 +301,12 @@ const Clients = () => {
             Pets
           </div>
         </div>
-        <div className="search-bar">
+        <div className="search-bar-wrapper">
+          <IoSearchOutline className="search-icon" />
           <input type="text" placeholder="Search" />
         </div>
         <div className="navbar-icons">
-          <span className="icon" onClick={handleAddButtonClick}>＋</span>
+          <CiCirclePlus className="icon" onClick={handleAddButtonClick} style={{ fontSize: '24px' }}/>
         </div>
       </div>
       <div className="clients-list">

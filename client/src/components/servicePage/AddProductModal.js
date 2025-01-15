@@ -57,7 +57,7 @@ const AddProductModal = ({ onClose, onSave }) => {
       <div className="modal-contain-pd">
         <div className="modal-header-sd">
           <IoIosCloseCircleOutline className="close-icon" onClick={onClose} />
-          <h2>Product Details</h2>
+          <h2>Add Product</h2>
           <button className="close-button" onClick={onClose}>
             &times;
           </button>

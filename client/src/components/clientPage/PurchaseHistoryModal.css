@@ -1,26 +1,43 @@
-.purchase-history-header {
-    padding: 10px 20px;
-    border-bottom: 1px solid #e8e8e8;
-  }
-  
-  .purchase-history-content {
-    padding: 20px;
-  }
-  
-  .purchase-history-panel {
-    margin-bottom: 10px; 
-    margin-top: 10px;
-  }
-  
-  .ant-collapse-header {
-    font-weight: bold;
-  }
-  
-  .ant-modal-body {
-    padding: 24px;
-  }
-  
-  .ant-collapse-header {
-    font-weight: bold;
-  }
-  
+.purchase-history-modal .ant-modal-content {
+  width: 76%;
+  height: 90%;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 24px;
+  position: fixed;
+  border-radius: 32px;
+}
+
+.purchase-history-item {
+  background-color: #f2f2f4;
+  margin-bottom: 16px;
+  padding: 10px;
+}
+
+.purchase-header-ph {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.purchase-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.purchase-purpose {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.purchase-date {
+  font-size: 14px;
+  color: #999;
+  margin-top: 4px;
+}

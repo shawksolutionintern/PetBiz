@@ -1,24 +1,70 @@
-.visit-history-header {
-  padding: 10px 20px;
-  border-bottom: 1px solid #e8e8e8;
+.visit-history-modal .ant-modal-content {
+  width: 76%;
+  height: 90%;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 24px;
+  position: fixed;
+  border-radius: 32px;
 }
-.ant-collapse-header {
-    font-weight: bold;
-  }
-  
-  .ant-modal-body {
-    padding: 24px;
-  }
-    
-  .client-stats {
-    margin-top: 16px;
-  }
 
-  .visit-history-content{
-    margin-bottom: 240px;
-  }
+/* Visit History List 样式 */
+.visit-history-item {
+  background-color: #f2f2f4;
+  padding: 10px;
+  margin-bottom: 16px;
+}
 
-  .visit-history-panel {
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
+/* Header 样式调整 */
+.visit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.visit-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-purpose-c {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.visit-date-c {
+  font-size: 14px;
+  color: #000000;
+  margin-top: 4px;
+}
+
+/* Dropdown 图标样式 */
+.chevron-icon {
+  font-size: 18px;
+  color: #666;
+  transition: transform 0.2s;
+}
+
+.chevron-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Dropdown 内容样式 */
+.visit-dropdown-content {
+  padding: 16px;
+  background-color: #f2f2f4;
+  border-top: 1px solid #000000;
+  margin-top: 12px;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,43 +1,96 @@
-import React from 'react';
-import { Modal, Typography, Input, Collapse } from 'antd';
+import React, { useState } from 'react';
+import { Modal} from 'antd';
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoSearchOutline } from "react-icons/io5";
+import { FaChevronDown } from "react-icons/fa"; 
+
 import './VisitHistoryModal.css';
 
-const { Panel } = Collapse;
-const { Search } = Input;
+const VisitHistoryModal = ({ visible, onClose, data }) => {
+  const [expandedItem, setExpandedItem] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
-const VisitHistoryModal = ({ visible, onClose, data }) => (
-  <Modal
-    title="Visit History"
-    visible={visible}
-    onCancel={onClose}
-    footer={null}
-    width={900} 
-    bodyStyle={{ padding: 0 }} 
-  >
-    <div className="visit-history-header">
-      <Search placeholder="Search" style={{ marginBottom: 16, padding: '10px 20px' }} />
-    </div>
-    <div className="visit-history-content">
-      <Collapse accordion>
+  return (
+    <Modal
+      title={
+        <div style={{
+          display: "flex",
+          alignItems: "center", 
+          fontSize: "24px",
+          fontWeight: "500",
+          fontFamily: "Rubik",
+          }}
+        >
+          <IoIosCloseCircleOutline
+            size={24}
+            style={{ color: "#969696", marginRight: 8, cursor: "pointer" }}
+            onClick={onClose}
+          />
+          <span style={{ color: '#525050' }}>Visit History</span>
+        </div>
+      }
+      visible={visible}
+      closable={false}
+      footer={null}
+      centered
+      className="visit-history-modal"
+      destroyOnClose={true}
+      maskTransitionName=""
+      transitionName=""
+    >
+      <div className="search-bar-container">
+        <div className="search-bar-sm">
+          <IoSearchOutline className="search-icon-sm" />
+          <input  
+            type="text" 
+            placeholder="Search" 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+        </div>
+        <span className="menu-icon">☰</span>
+      </div>
+      
+      {/* Visit History Content */}
+      <div className="visit-history-list">
         {data.map((item, index) => (
-          <Panel 
-            header={`${item.purpose} - ${item.date}`} 
-            key={index}
-            className="visit-history-panel"
-          >
-            <Typography.Paragraph><strong>Pet Name:</strong> {item.petName}</Typography.Paragraph>
-            <Typography.Paragraph><strong>Appointment Time:</strong> {item.appointmentTime}</Typography.Paragraph>
-            <Typography.Paragraph><strong>Duration:</strong> {item.duration}</Typography.Paragraph>
-            <Typography.Paragraph><strong>Employee:</strong> {item.employee}</Typography.Paragraph>
-            <Typography.Paragraph><strong>Price:</strong> {item.price}</Typography.Paragraph>
-          </Panel>
+          <div key={index} className="visit-history-item">
+            <div className="visit-header" onClick={() => setExpandedItem(expandedItem === item.date ? null : item.date)}>
+              <div className="visit-details">
+                <span className="visit-purpose-c">{item.purpose}</span>
+                <span className="visit-date-c">{item.date}</span>
+              </div>
+              <FaChevronDown
+                className={`chevron-icon ${expandedItem === item.date ? 'expanded' : ''}`}
+              />
+            </div>
+            {expandedItem === item.date && (
+              <div className="visit-dropdown-content">
+              <div className="dropdown-item">
+                <span className="label-cv">Appointment Time:</span>
+                <span className="value-cv">{item.appointmentTime}</span>
+              </div>
+              <div className="dropdown-item">
+                <span className="label-cv">Duration:</span>
+                <span className="value-cv">{item.duration}</span>
+              </div>
+              <div className="dropdown-item">
+                <span className="label-cv">Employee:</span>
+                <span className="value">{item.employee}</span>
+              </div>
+              <div className="dropdown-item">
+                <span className="label-cv">Price:</span>
+                <span className="value-cv">{item.price}</span>
+              </div>
+            </div>            
+            )}
+          </div>
         ))}
-      </Collapse>
-    </div>
-  </Modal>
-);
+      </div>
+    </Modal>
+  );
+};
 
 export default VisitHistoryModal;
-
-
 

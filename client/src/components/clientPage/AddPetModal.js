@@ -1,39 +1,19 @@
 import React, { useState } from 'react';
-import { Modal, Form, Input, Button, Row, Col, Typography, Switch, Upload, message } from 'antd';
+import { Modal, Form, Input, Button, Row, Col, Typography } from 'antd';
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import { PlusOutlined, RightOutlined } from '@ant-design/icons';
+import './AddPetModal.css';
 import VaccinationRecordUploadModal from './VaccinationRecordUploadModal';
-import './PetDetailModal.css';
 
 const AddPetModal = ({ onClose, onSave }) => {
   const [form] = Form.useForm();
-  const [avatarUrl, setAvatarUrl] = useState('');
   const [visibleComponent, setVisibleComponent] = useState('');
 
   const handleSave = () => {
     form.validateFields().then(values => {
-      onSave({ ...values, avatarUrl });
+      onSave({ ...values });
       onClose();
     });
-  };
-
-  const handleUploadChange = info => {
-    if (info.file.status === 'done') {
-      // Get this url from response in real implementation
-      setAvatarUrl(URL.createObjectURL(info.file.originFileObj));
-    }
-  };
-
-  const beforeUpload = file => {
-    // Validate file type and size before upload
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-      message.error('You can only upload JPG/PNG file!');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error('Image must smaller than 2MB!');
-    }
-    return isJpgOrPng && isLt2M;
   };
 
   const handleItemClick = (item) => {
@@ -43,89 +23,91 @@ const AddPetModal = ({ onClose, onSave }) => {
   return (
     <>
       <Modal
-        title="Add New Pet"
+        title={
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            fontSize: "24px",
+            fontWeight: "500",
+            fontFamily: "Rubik",
+          }}>
+            <IoIosCloseCircleOutline
+              size={24}
+              style={{ color: "#969696", marginRight: 8, cursor: "pointer" }}
+              onClick={onClose}
+            />
+            <span style={{ color: '#525050' }}>Add a New Pet</span>
+          </div>
+        }
         visible={true}
-        onCancel={onClose}
-        footer={[
-          <Button key="cancel" onClick={onClose}>
-            Cancel
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleSave}>
-            Save
-          </Button>,
-        ]}
-        width="900px"
+        closable={false}
+        footer={null}
+        centered
+        className="add-pet-modal"
+        destroyOnClose={true}
+        maskTransitionName=""
+        transitionName=""
       >
         <Row gutter={16}>
-          <Col span={8}>
-            <Form.Item>
-              <Upload
-                name="avatar"
-                listType="picture-card"
-                className="avatar-uploader"
-                showUploadList={false}
-                action="/path/to/upload"
-                beforeUpload={beforeUpload}
-                onChange={handleUploadChange}
-              >
-                {avatarUrl ? (
-                  <img src={avatarUrl} alt="avatar" style={{ width: '100%' }} />
-                ) : (
-                  <div>
-                    <PlusOutlined />
-                    <div className="upload-text" style={{ marginTop: 8 }}>Upload</div>
-                  </div>
-                )}
-              </Upload>
-            </Form.Item>
-            <Typography.Text className="custom-link" onClick={() => handleItemClick('Upload Vaccination Record')}>
+          {/* Left Section: Avatar and Vaccination Upload */}
+          <Col span={8} className="client-left">
+            <div className="empty-avatar">
+              <span>Upload an Image</span>
+            </div>
+            <Typography.Text className="addpet-link-cd" onClick={() => handleItemClick('Upload Vaccination Record')}>
               Upload Vaccination Record <RightOutlined />
             </Typography.Text>
           </Col>
-          <Col span={16}>
-            <Form form={form} layout="vertical">
-              <Row gutter={16}>
-                <Col span={12}>
+
+          {/* Right Section: Form */}
+          <Col span={16} className="client-right-section">
+            <Form form={form} layout="vertical" initialValues={{}} className="client-right-form">
+              <div className="form-row">
+                <div className="form-item">
                   <Form.Item name="owner" label="Owner Name" rules={[{ required: true, message: 'Please enter owner name' }]}>
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
+                </div>
+                <div className="form-item">
                   <Form.Item name="name" label="Pet Name" rules={[{ required: true, message: 'Please enter pet name' }]}>
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-              </Row>
-              <Row gutter={16}>
-                <Col span={12}>
+                  </div>
+              </div>
+              <div className="form-row">
+                <div className="form-item">
                   <Form.Item name="weight" label="Pet Weight">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
+                </div>
+                    <div className="form-item">
                   <Form.Item name="gender" label="Pet Gender">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-              </Row>
-              <Row gutter={16}>
-                <Col span={12}>
+                </div>
+                </div>
+              <div className="form-row">
+                <div className="form-item">
                   <Form.Item name="dob" label="Pet's Date of Birth">
-                    <Input type="date" />
+                    <Input className="client-input" type="date" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
+                </div>
+                <div className="form-item">
                   <Form.Item name="breed" label="Pet Breed">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-              </Row>
-              <Form.Item name="notes" label="Notes">
-                <Input.TextArea />
-              </Form.Item>
-              <Form.Item name="active" label="No Longer Offered" valuePropName="checked">
-                <Switch />
-              </Form.Item>
+                </div>
+              </div>
+              <div className="form-row">
+                <div className="form-item">
+                  <Form.Item name="notes" label="Notes">
+                    <Input.TextArea className="client-input" rows={2} />
+                  </Form.Item>
+                </div>
+              </div>
+              <div className="form-buttons-cd">
+                <Button type="primary" onClick={handleSave} className="save-button-cid">Save</Button>
+              </div>
             </Form>
           </Col>
         </Row>
@@ -140,5 +122,6 @@ const AddPetModal = ({ onClose, onSave }) => {
 };
 
 export default AddPetModal;
+
 
 

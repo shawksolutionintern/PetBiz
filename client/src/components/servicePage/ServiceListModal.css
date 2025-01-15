@@ -47,7 +47,7 @@
 /* Search input field styles */
 .search-bar-sm input[type="text"] {
   width: 100%;
-  padding: 12px 40px; /* Padding to make space for the search icon */
+  padding: 10px 40px; 
   border: none;
   border-radius: 32px;
   background-color: transparent;

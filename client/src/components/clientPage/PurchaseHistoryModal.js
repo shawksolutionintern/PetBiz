@@ -1,37 +1,92 @@
-import React from 'react';
-import { Modal, Typography, Input, Collapse } from 'antd';
+import React, { useState } from 'react';
+import { Modal, Typography } from 'antd';
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoSearchOutline } from "react-icons/io5";
+import { FaChevronDown } from "react-icons/fa";
 
+import './PurchaseHistoryModal.css';
 
-const { Panel } = Collapse;
-const { Search } = Input;
+const PurchaseHistoryModal = ({ visible, onClose, data }) => {
+  const [expandedItem, setExpandedItem] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
-const PurchaseHistoryModal = ({ visible, onClose, data }) => (
-  <Modal
-    title="Purchase History"
-    visible={visible}
-    onCancel={onClose}
-    footer={null}
-    width={900} // 与 ClientDetailModal 一样大
-    bodyStyle={{ padding: 0 }} // 去掉内边距
-  >
-    <div className="purchase-history-header">
-      <Search placeholder="Search" style={{ marginBottom: 16, padding: '10px 20px' }} />
-    </div>
-    <div className="purchase-history-content">
-      <Collapse accordion>
+  return (
+    <Modal
+    title={
+      <div style={{
+        display: "flex",
+        alignItems: "center", 
+        fontSize: "24px",
+        fontWeight: "500",
+        fontFamily: "Rubik",
+        }}
+      >
+        <IoIosCloseCircleOutline
+          size={24}
+          style={{ color: "#969696", marginRight: 8, cursor: "pointer" }}
+          onClick={onClose}
+        />
+        <span style={{ color: '#525050' }}>Purchase History</span>
+      </div>
+    }
+      visible={visible}
+      closable={false}
+      footer={null}
+      centered
+      className="purchase-history-modal"
+      destroyOnClose={true}
+      maskTransitionName=""
+      transitionName=""
+    >
+      <div className="search-bar-container">
+        <div className="search-bar-sm">
+          <IoSearchOutline className="search-icon-sm" />
+          <input
+            className="search-input-sm"
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <span className="menu-icon">☰</span>
+      </div>
+
+      {/* Purchase History 列表 */}
+      <div className="purchase-history-list">
         {data.map((item, index) => (
-          <Panel 
-            header={`${item.purpose} - ${item.date}`} 
+          <div
             key={index}
-            className="purchase-history-panel"
+            className={`purchase-history-item ${expandedItem === item.date ? "expanded" : "collapsed"}`}
           >
-            <Typography.Paragraph><strong>Item:</strong> {item.item}</Typography.Paragraph>
-            <Typography.Paragraph><strong>Amount:</strong> ${item.amount}</Typography.Paragraph>
-          </Panel>
+            <div
+              className="purchase-header-ph"
+              onClick={() => setExpandedItem(expandedItem === item.date ? null : item.date)}
+            >
+              <div className="purchase-details">
+                <span className="purchase-purpose">{item.item}</span>
+                <span className="purchase-date">{item.date}</span>
+              </div>
+              <FaChevronDown className={`chevron-icon ${expandedItem === item.date ? "expanded" : ""}`} />
+            </div>
+            {expandedItem === item.date && (
+              <div className="visit-dropdown-content">
+                <div className="dropdown-item">
+                  <span className="label-cv">Item:</span>
+                  <span className="value-cv">{item.item}</span>
+                </div>
+                <div className="dropdown-item">
+                  <span className="label-cv">Amount:</span>
+                  <span className="value-cv">{item.amount}</span>
+                </div>
+              </div>
+            )}
+          </div>
         ))}
-      </Collapse>
-    </div>
-  </Modal>
-);
+      </div>
+    </Modal>
+  );
+};
 
 export default PurchaseHistoryModal;
+

@@ -1,23 +1,17 @@
-.pet-avatar {
-  width: 160px; 
-  height: 160px; 
-  border-radius: 50%; 
-  object-fit: cover; 
-  margin-bottom: 10px; 
+
+
+.pet-right-section {
+  padding: 24px;
+  width: 66.67%; 
 }
 
-.pet-stats p {
-  margin: 5px 0; 
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 45px;
+  margin-bottom: 10px;
 }
 
-.custom-link {
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
-  margin: 5px 0; 
-  margin-top: 5px;
-}
-
-.custom-link:hover {
-  color: grey;
+.form-item {
+  flex: 1;
 }

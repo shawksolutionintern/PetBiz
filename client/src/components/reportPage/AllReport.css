@@ -31,7 +31,6 @@
   position: relative;
   cursor: pointer;
   height: 79px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   position: relative;
 }
 
@@ -54,7 +53,7 @@
 .allreport-item-title {
   margin-top: 15px;
   font-size: 19px;
-  font-weight: bold;
+  font-weight: 400;
   margin-bottom: 5px;
   margin-left: 10px;
 }

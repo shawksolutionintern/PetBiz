@@ -28,7 +28,7 @@ const ResetPassword = () => {
       <FaArrowLeft className="arrow-left" onClick={() => window.history.back()} />
       <h1 className="title">Reset Password</h1>
       <p className="instruction">Enter your new password to reset your password</p>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="password" className="label">Password</label>
           <div className="password-input-container">

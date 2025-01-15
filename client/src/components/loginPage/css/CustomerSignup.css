@@ -13,27 +13,27 @@
     font-family: 'Inter', sans-serif;
     font-size: 28px;
     color: #333;
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
   
-  form {
+  .customer-signup > form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px; 
+  }
+  
+  .customer-signup .form-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px; 
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
+    margin-top: 1px;
     width: 100%;
     max-width: 624px;
     align-items: flex-start !important;
   }
   
-  .label {
+  .customer-signup .label {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
     font-weight: 400 !important;
@@ -44,10 +44,10 @@
     display: block;
   }
   
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"],
-  .form-group input[type="confirmPassword"]  {
+  .customer-signup .form-group input[type="text"],
+  .customer-signup .form-group input[type="email"],
+  .customer-signup .form-group input[type="password"],
+  .customer-signup .form-group input[type="confirmPassword"]  {
     width: 100%;
     padding: 8px;
     background-color: #d9d9d9;
@@ -55,9 +55,27 @@
     border-radius: 8px;
     box-sizing: border-box; 
   }
+
+  .customer-signup .password-input-container {
+    position: relative;
+    width: 100%;
+  }
   
-  .password-criteria {
-    margin-bottom: 20px;
+  .customer-signup .input {
+    width: 100%;
+    height: 52px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 40px;
+  }
+  
+  .customer-signup .password-criteria {
+    margin-bottom: 10px;
     color:#969696
   }
   
@@ -65,7 +83,7 @@
   .policy {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .policy input[type="checkbox"] {
@@ -78,14 +96,14 @@
   
   .customer-signup button {
     width: 279px;
-    height: 56px;
+    height: 52px;
     border-radius: 40px;
     background-color: #ced0d3;
     color: #000000;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    margin-top: 40px;
+    margin: 20px auto 0 auto;
     transition: background-color 0.3s ease;
   }
   

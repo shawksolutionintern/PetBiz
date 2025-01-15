@@ -47,7 +47,7 @@ function CustomerLogin() {
 
         {error && <div className="error-message">The account or password is incorrect!</div>}
 
-        <button type="submit" className="sign-in-button">Sign in</button>
+        <button type="submit" className="sign-in-button-BL">Sign in</button>
 
         <div className="sign-up-container">
           <span className='account'>Didn't have an account?</span>

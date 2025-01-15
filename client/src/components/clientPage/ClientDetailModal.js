@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Form, Input, Button, Row, Col, Typography, Switch } from 'antd';
 import { RightOutlined, PlusOutlined } from '@ant-design/icons';
 import './ClientDetailModal.css';
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import VisitHistoryModal from './VisitHistoryModal';
 import PurchaseHistoryModal from './PurchaseHistoryModal';
 import UpcomingAppointmentsModal from './UpcomingAppointmentsModal';
@@ -47,78 +48,133 @@ const ClientDetailModal = ({ client, onClose, onSave, onDelete }) => {
   return (
     <>
       <Modal
-        title="Client Details"
+        title={
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: "24px",
+              fontWeight: "500",
+              fontFamily: "Rubik",
+            }}
+          >
+            <IoIosCloseCircleOutline
+              size={24}
+              style={{ color: "#969696", marginRight: 8, cursor: "pointer" }}
+              onClick={onClose}
+            />
+            <span style={{color:'#525050'}}>Client Details</span>
+          </div>
+        }
         visible={true}
-        onCancel={onClose}
-        footer={[
-          <Button key="delete" danger onClick={handleDelete}>
-            Delete
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleSave}>
-            Save
-          </Button>,
-        ]}
-        width="900px"
+        closable={false}
+        footer={null}
+        centered
+        className="client-detail-modal"
+        destroyOnClose={true}
+        maskTransitionName=""
+        transitionName=""
       >
         <Row gutter={16}>
-          <Col span={8}>
+          <Col span={8} className="client-left">
             <img src={client.avatarUrl} alt="Client Avatar" className="client-avatars" />
             <div className="client-stats">
               <p>Loyalty Points: {client.loyaltyPoints || 0}</p>
               <p>Balance: {client.balance || 0}</p>
               <p>Total Visits: {client.totalVisits || 0}</p>
             </div>
-            <Typography.Text className="custom-link" onClick={() => handleItemClick('Visit History')}>
-              Visit History <RightOutlined />
-            </Typography.Text><br />
-            <Typography.Text className="custom-link" onClick={() => handleItemClick('Purchase History')}>
-              Purchase History <RightOutlined />
-            </Typography.Text><br />
-            <Typography.Text className="custom-link" onClick={() => handleItemClick('Upcoming Appointments')}>
-              Upcoming Appointments <RightOutlined />
-            </Typography.Text><br />
-            <Typography.Text className="custom-link" onClick={() => handleItemClick('Signed Contract')}>
-              Signed Contract <RightOutlined />
-            </Typography.Text>
+            <div className="custom-link-cd" onClick={() => handleItemClick('Visit History')}>
+              <span>Visit History</span>
+              <RightOutlined />
+            </div>
+            <div className="custom-link-cd" onClick={() => handleItemClick('Purchase History')}>
+              <span>Purchase History</span>
+              <RightOutlined />
+            </div>
+            <div className="custom-link-cd" onClick={() => handleItemClick('Upcoming Appointments')}>
+              <span>Upcoming Appointments</span>
+              <RightOutlined />
+            </div>
+            <div className="custom-link-cd" onClick={() => handleItemClick('Signed Contract')}>
+              <span>Signed Contract</span>
+              <RightOutlined />
+            </div>
           </Col>
-          <Col span={16}>
-            <Form form={form} layout="vertical" initialValues={client}>
-              <Row gutter={16}>
-                <Col span={12}>
-                  <Form.Item name="name" label="Client Name" rules={[{ required: true, message: 'Please enter client name' }]}>
-                    <Input />
+          <Col span={16} className="client-right-section">
+            <Form form={form} layout="vertical" initialValues={client} className="client-right-form">
+              {/* 第一行：Client Name 和 Loyalty ID */}
+              <div className="form-row">
+                <div className="form-item">
+                  <Form.Item
+                    name="name"
+                    label="Client Name"
+                    rules={[{ required: true, message: 'Please enter client name' }]}
+                  >
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
+                </div>
+                <div className="form-item">
                   <Form.Item name="loyaltyId" label="Loyalty ID">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-              </Row>
-              <Row gutter={16}>
-                <Col span={12}>
+                </div>
+              </div>
+
+              {/* 第二行：E-mail 和 Mobile Phone */}
+              <div className="form-row">
+                <div className="form-item">
                   <Form.Item name="email" label="E-mail">
-                    <Input type="email" />
+                    <Input className="client-input" type="email" />
                   </Form.Item>
-                </Col>
-                <Col span={12}>
+                </div>
+                <div className="form-item">
                   <Form.Item name="tel" label="Mobile Phone">
-                    <Input />
+                    <Input className="client-input" />
                   </Form.Item>
-                </Col>
-              </Row>
-              <Form.Item name="address" label="Address">
-                <Input />
+                </div>
+              </div>
+              {/* 第三行：Address */}
+              <Form.Item name="address" label="Address" className="full-width-item">
+                <Input className="client-input" />
               </Form.Item>
-              <Form.Item name="notes" label="Notes">
-                <Input.TextArea />
+
+              {/* 第四行：Notes */}
+              <Form.Item name="notes" label="Notes" className="full-width-item">
+                <Input.TextArea className="client-textarea" rows={2} />
               </Form.Item>
-              <Typography.Text className="custom-link" onClick={() => alert('Add Pet')}>
-                <PlusOutlined /> Add Pet
-              </Typography.Text><br />
-              <Form.Item name="Active" label="No Longer Offered" valuePropName="checked">
-                <Switch />
+
+              {/* Pets Information */}
+              <div style={{ textAlign: 'left', width: '100%' }}>
+                <Typography.Title level={5} className="pets-title">
+                  Pets Information
+                </Typography.Title>
+              </div>
+              <div className="pets-info-section">
+                {/* Pet Tag */}
+                <div className="pet-tag">
+                  <span>Sam (Affenpinscher)</span>
+                  <RightOutlined />
+                </div>
+
+                {/* Add Pet Button */}
+                <div className="add-pet-section">
+                  <PlusOutlined className="add-pet-icon" />
+                </div>
+              </div>
+
+              {/* No Longer Offered */}
+              <Form.Item className="no-longer-offered-cd">
+                <div className="no-longer-row">
+                  <label>No Longer Offered</label>
+                  <Switch />
+                </div>
               </Form.Item>
+
+              {/* Save and Delete Buttons */}
+              <div className="form-buttons-cd">
+                <Button type="primary" onClick={handleSave} className="save-button-cid">Save</Button>
+                <Button type="danger" onClick={handleDelete} className="delete-button-cid">Delete</Button>
+              </div>
             </Form>
           </Col>
         </Row>

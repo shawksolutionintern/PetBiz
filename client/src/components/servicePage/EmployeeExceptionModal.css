@@ -1,22 +1,31 @@
+.modal-overlay-ee {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .modal-content-ee {
-  width: 45%;
+  width: 40%;
   height: 90%;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 32px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 .modal-header-ee {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   margin-bottom: 20px;
 }
 
 .back-icon {
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
   color: #525050;
 }

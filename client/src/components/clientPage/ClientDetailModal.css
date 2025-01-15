@@ -1,20 +1,200 @@
+.client-detail-modal .ant-modal-content {
+  width: 76%;
+  height: 90%;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 24px;
+  position: fixed;
+  border-radius: 32px;
+}
+
 .client-avatars {
-    width: 160px; 
-    height: 160px; 
+    width: 240px; 
+    height: 240px; 
     border-radius: 50%; 
     object-fit: cover; 
     margin-bottom: 10px; 
+    margin-left: 50px;
+    margin-top: 10px; 
+
+  }
+
+  .client-left {
+    align-items: center;
   }
 
 .client-stats p {
-    margin: 5px 0; 
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Inter";
+    margin: 5px 0 0 20px;
+    text-align: left;
   }
 
-  .custom-link {
+  .custom-link-cd {
+    display: flex;
+    justify-content: space-between;
     color: black;
     cursor: pointer;
     text-decoration: none;
-    margin: 5px 0; 
-    margin-top: 5px;
+    margin:5px 0 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Inter";
+    text-align: left;
+    align-items: center;
   }
-  
+
+/* 右侧表单整体样式 */
+.client-right-section {
+  padding: 24px;
+  width: 66.67%; 
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 45px;
+  margin-bottom: 10px;
+}
+
+.form-item {
+  flex: 1;
+}
+
+.client-input {
+  background-color: #EAEAED;
+  border-radius: 4px;
+  padding: 8px;
+  height: 35px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Inter";
+  border: 1px solid #EAEAED;
+}
+
+/* Notes 输入框 */
+.client-textarea {
+  background-color: #EAEAED;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #EAEAED;
+  resize: none;
+}
+
+/* 全宽表单项 */
+.full-width-item {
+  width: 92%;
+  margin-bottom: 16px;
+}
+
+/* No Longer Offered 滑块样式 */
+.no-longer-offered-cd {
+  margin-bottom: 24px;
+}
+
+/* No Longer Offered 行样式 */
+.no-longer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:455px;
+  width: 100%;
+}
+
+/* Label 样式 */
+.no-longer-row label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  font-family: "Inter", sans-serif;
+  margin-right: 16px;
+}
+
+/* 按钮样式 */
+.form-buttons-cd {
+  display: flex;
+  justify-content: flex-end;
+  gap: 58px;
+  margin-top: 16px;
+  width:80%;
+}
+
+.save-button-cid {
+  background-color: #d9d9d9;
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 20px 96px;
+}
+
+.delete-button-cid {
+  background-color: #D9D9D9;
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 20px 96px;
+  margin-right:40px;
+}
+/* Pets Information 标题样式 */
+.pets-title {
+  margin-bottom: 12px;
+  margin-left: 24px;
+  font-weight: 400 !important;
+ 
+}
+.pets-info-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-content: flex-start;
+  width: 100%; 
+  padding-left: 0; 
+}
+.pet-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  margin-left: 24px;
+}
+
+.pet-tag span {
+  color: #333;
+  font-weight: 400;
+}
+
+.add-pet-icon {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.add-pet-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  padding: 8px 8px;
+  border-radius: 8px;
+}
+.client-detail-modal .ant-modal-content {
+  transition: none;
+}

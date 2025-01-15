@@ -1,55 +1,50 @@
 import React, { useState } from 'react';
-import { Modal, List, Input } from 'antd';
-import './UpcomingAppointmentsModal.css';
-import AppointmentDetailModal from '../homePage/AppointmentDetailModal'; // Corrected case in import path
+import { Modal, Typography, Input } from 'antd';
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
-const { Search } = Input;
+
+import './UpcomingAppointmentsModal.css';
 
 const UpcomingAppointmentsModal = ({ visible, onClose, data }) => {
-  const [selectedAppointment, setSelectedAppointment] = useState(null);
-
-  const handleAppointmentClick = (appointment) => {
-    setSelectedAppointment(appointment);
-  };
-
-  const handleCloseDetail = () => {
-    setSelectedAppointment(null);
-  };
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <Modal
-      title="Upcoming Appointments"
-      visible={visible}
-      onCancel={() => {
-        onClose();
-        setSelectedAppointment(null);
-      }}
-      footer={null}
-      width={900} 
-      bodyStyle={{ padding: 0 }}
-    >
-      <div className="upcoming-appointments-header">
-        <Search placeholder="Search" style={{ marginBottom: 16, padding: '10px 20px' }} />
-      </div>
-      <div className="upcoming-appointments-content">
-        <List
-          itemLayout="horizontal"
-          dataSource={data}
-          renderItem={item => (
-            <List.Item onClick={() => handleAppointmentClick(item)} className="upcoming-appointments-item">
-              <List.Item.Meta
-                title={item.purpose}
-                description={item.date}
-              />
-            </List.Item>
-          )}
+    title={
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        fontSize: "24px",
+        fontWeight: "500",
+        fontFamily: "Rubik",
+      }}>
+        <IoIosCloseCircleOutline
+          size={24}
+          style={{ color: "#969696", marginRight: 8, cursor: "pointer" }}
+          onClick={onClose}
         />
-        {selectedAppointment && (
-          <AppointmentDetailModal
-            request={selectedAppointment}
-            onClose={handleCloseDetail}
-          />
-        )}
+        <span style={{ color: '#525050' }}>Visit History</span>
+      </div>
+    }
+    visible={visible}
+      closable={false}
+      footer={null}
+      centered
+      className="upcoming-appointments-modal"
+      destroyOnClose={true}
+      maskTransitionName=""
+      transitionName=""
+    >
+      {/* Appointments 列表 */}
+      <div className="visit-history-list">
+        {data.map((item, index) => (
+          <div key={index} className="visit-history-item">
+            <div className="visit-details">
+              <span className="visit-purpose-c">{item.purpose}</span>
+              <span className="visit-date-c">{item.date}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </Modal>
   );

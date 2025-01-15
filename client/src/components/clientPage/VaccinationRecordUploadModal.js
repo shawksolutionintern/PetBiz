@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Modal, Upload, Button, message } from 'antd';
+import { Modal, Upload,  message } from 'antd';
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import { PlusOutlined } from '@ant-design/icons';
 
 const VaccinationRecordUploadModal = ({ visible, onClose }) => {
@@ -30,24 +31,60 @@ const VaccinationRecordUploadModal = ({ visible, onClose }) => {
 
   return (
     <Modal
-      title="Vaccination Record"
+      title={
+        <div style={{
+          display: "flex",
+          alignItems: "center", 
+          fontSize: "24px",
+          fontWeight: "500",
+          fontFamily: "Rubik",
+        }}>
+          <IoIosCloseCircleOutline
+            size={24}
+            style={{ color: "#969696", marginRight: 8, cursor: "pointer" }}
+            onClick={onClose}
+          />
+          <span style={{ color: '#525050' }}>Vaccination Record</span>
+        </div>
+      }
       visible={visible}
-      onCancel={onClose}
-      footer={[
-        <Button key="cancel" onClick={onClose}>
-          Close
-        </Button>,
-      ]}
-      width="900px"
+      closable={false}
+      footer={null}
+      centered
+      className="add-pet-modal"
+      destroyOnClose={true}
+      maskTransitionName=""
+      transitionName=""
     >
       <Upload
         beforeUpload={beforeUpload}
         onChange={handleUploadChange}
         fileList={fileList}
       >
-        <div style={{ border: '1px dashed #939191', padding: '220px 350px' ,textAlign: 'center'}}>
-          <PlusOutlined />
-          <div style={{ marginTop: 8}}><strong>Upload a PDF</strong></div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <div
+            style={{
+              border: '1px dashed #000000',
+              padding: '250px 350px',
+              textAlign: 'center',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              marginTop: '50px',
+              marginLeft: '100px',
+              marginRight: '30px',
+            }}
+          >
+            <PlusOutlined />
+            <strong>Upload a PDF</strong>
+          </div>
         </div>
       </Upload>
     </Modal>
@@ -55,4 +92,3 @@ const VaccinationRecordUploadModal = ({ visible, onClose }) => {
 };
 
 export default VaccinationRecordUploadModal;
-

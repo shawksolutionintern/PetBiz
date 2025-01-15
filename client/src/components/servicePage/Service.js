@@ -190,16 +190,6 @@ const Services = () => {
     return filteredData;
   };
 
-  const getFilteredData = () => {
-    if (selectedTab === "Services") {
-      return applyFilters(services);
-    } else if (selectedTab === "Products") {
-      return applyFilters(products);
-    } else if (selectedTab === "Packages") {
-      return applyFilters(packages);
-    }
-  };
-
   const filters = {
     Services: [
       { title: "Price", options: ["Low to high", "High to low"] },
